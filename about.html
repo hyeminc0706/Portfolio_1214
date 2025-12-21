@@ -95,7 +95,7 @@
 				}				
 			});
         });
-         // .intron span a 클릭시 해당 스크롤 이동
+        // .intron span a 클릭시 해당 스크롤 이동
         $(document).ready(function(){    
             var c=[       
             $("#contact").offset().top,     
@@ -107,6 +107,13 @@
                 $("html,body").animate({scrollTop:c[n]},1500);  
                     return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨...
             }); 
+        });
+        $(document).ready(function(){ 
+            $("footer .top").click(function(){
+                $("html, body").animate({scrollTop:0},1000);
+                return false;
+            });
+        
         });
         // (반응형).nav-item 클릭시 스크롤 이동 
         $(document).ready(function(){    
@@ -131,14 +138,6 @@
         });
 
         $(document).ready(function(){ 
-            $("footer .top").click(function(){
-                $("html, body").animate({scrollTop:0},1000);
-                return false;
-            });
-        
-        });
-
-        $(document).ready(function(){ 
             // burgerbutton 클릭시 버거메뉴 열기
             $(".hamburger").click(function(){
                 $(".nav-menu").toggleClass("active");
@@ -160,6 +159,19 @@
             });
         });
 
+                 // .intron span a 클릭시 해당 스크롤 이동
+        $(document).ready(function(){    
+            var c=[       
+            $("#contact").offset().top,     
+            $("#projects").offset().top            
+            ];      
+            var n; 
+            $("#title .wrap .intro span a").click(function(){               
+                n = $(this).index();
+                $("html,body").animate({scrollTop:c[n]},1500);  
+                    return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨...
+            }); 
+        });
 
     </script> 
     </script>
@@ -229,8 +241,8 @@
                 </ul>
                 <ul>                            
                     <p class="two">                        
-                            <strong> UIUX Developer </strong>
-                            based in Los Angeles, CA
+                            <strong> UI/UX designer </strong>
+                            based in Seoul, South Korea
                     </p>  
                 </ul>
                 <div>         
@@ -445,4 +457,3 @@
     <div class="cursor2"></div>
 </body>
 </html>
-
