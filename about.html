@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Min's Portfolio</title>
+    <title>Mina's Portfolio</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/common.css">
@@ -95,7 +95,7 @@
 				}				
 			});
         });
-        // .intron span a 클릭시 해당 스크롤 이동
+         // .intron span a 클릭시 해당 스크롤 이동
         $(document).ready(function(){    
             var c=[       
             $("#contact").offset().top,     
@@ -108,6 +108,28 @@
                     return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨...
             }); 
         });
+        // (반응형).nav-item 클릭시 스크롤 이동 
+        $(document).ready(function(){    
+
+            var c = [
+                $("#aboutme").offset().top,
+                $("#projects").offset().top,
+                $("#contact").offset().top
+            ];
+
+            $("li.nav-item").click(function(e){               
+                e.preventDefault(); // a 태그 기본 동작 방지
+
+                var n = $(this).index();
+                $("html,body").animate({scrollTop:c[n]},1500);
+            }); 
+
+            $(".nav-link").click(function(){
+                $(".nav-menu").removeClass("active");
+                $(".hamburger").removeClass("active");
+            });
+        });
+
         $(document).ready(function(){ 
             $("footer .top").click(function(){
                 $("html, body").animate({scrollTop:0},1000);
@@ -115,14 +137,30 @@
             });
         
         });
-        // burgerbutton 클릭시 버거메뉴 열기
+
         $(document).ready(function(){ 
-            $("header div nav span").click(function(){
-                $(".burgeroption").toggleClass("show");
-                return false;
+            // burgerbutton 클릭시 버거메뉴 열기
+            $(".hamburger").click(function(){
+                $(".nav-menu").toggleClass("active");
+                $(".hamburger").toggleClass("active");
+            });
+
+            // scrolldown하면 버거메뉴 접기
+            let lastScrollTop = 0;
+
+            $(window).on("scroll", function() {
+                let currentScroll = $(this).scrollTop();
+
+                if (currentScroll > lastScrollTop) {
+                $(".nav-menu").removeClass("active");
+                $(".hamburger").removeClass("active");
+                }
+
+                lastScrollTop = currentScroll;
             });
         });
-      
+
+
     </script> 
     </script>
     
@@ -143,33 +181,43 @@
     <header>
         <div class="wrap">
             <nav class="flex">
-                <h1><a href="index.html" class="logo block" target="_blank">Logo</a></h1>                
+                <!-- 로고 -->
+                <h1><a href="index.html" class="logo block">Logo</a></h1>
+
+                <!-- PC용 메뉴 -->
                 <ul class="gnb flex">
                     <li><a href="about.html" class="block h2">About</a></li>
                     <li><a href="" class="block h2">Projects</a></li>
-                    <li><a href="" class="block h2">Contact</a></li>             
-                </ul>   
-                <div class="rgnb flex">                    
+                    <li><a href="" class="block h2">Contact</a></li>
+                </ul>
+
+                <!-- SNS 아이콘 -->
+                <div class="rgnb flex">
                     <a href="https://www.linkedin.com/in/min-choi-0586a7321/" target="_blank" class="social-icon w-inline-block">
-                        <img src="https://assets-global.website-files.com/606694bd40508c617a3f20fb/60676cf28d2cabcd51294d2d_linkedin.svg" loading="lazy" width="19" alt="" class="image-9">
-                    </a>                    
-                    <a href="mailto:hyeminc0706@gmail.com?subject=Hey%20Min!" class="social-icon w-inline-block">
-                        <img src="https://assets-global.website-files.com/606694bd40508c617a3f20fb/6067ae0616f374c4dd05508f_noun_Mail_52963.svg" loading="lazy" width="40" alt="" class="image-6">
+                    <img src="https://assets-global.website-files.com/606694bd40508c617a3f20fb/60676cf28d2cabcd51294d2d_linkedin.svg" width="19">
                     </a>
-                </div>   
-                <div class="off-screen-menu">
-                    <span><a href="" class="burger button">메뉴</a></span> 
-                    <ul class="burgeroption">
-                        <li>Home</li>
-                        <li><a href="about.html"></a>About</li>
-                        <li>Project</li>
-                        <li>Contact</li>
-                    </ul>
-                </div>   
-                   
+                    <a href="https://forms.gle/QfzvRucYFk6DGUGo9" target="_blank" class="social-icon w-inline-block">
+                    <img src="https://assets-global.website-files.com/606694bd40508c617a3f20fb/6067ae0616f374c4dd05508f_noun_Mail_52963.svg" width="40">
+                    </a>
+                </div>
+
+                <!-- 모바일 버거 메뉴 -->
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
+                <!-- 모바일 메뉴 -->
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Contact</a></li>
+                </ul>
             </nav>
         </div>
     </header>
+
     <!-- 타이틀영역 -->
     <div id="title">
         <div class="wrap">
@@ -186,7 +234,7 @@
                     </p>  
                 </ul>
                 <div>         
-                    <p class="self">Hi! I'm Min,</p>
+                    <p class="self">Hi! I'm Mina,</p>
                     <p>   
                     I deliever easy and efficient experience for the targetted users.
                     </p> 
@@ -204,107 +252,15 @@
             </div>   
         </div>
         <div class="updatetime">
-            <p>Last updated</p><p>09 - 01 - 2024</p>
+            <p>Last updated</p><p>12 - 14 - 2025</p>
         </div>
     </div>
+    
     <!-- 메인 -->
-
-<!-- Project  -->
-    <section id="projects">
-        <div class="wrap paddingT50 paddingB50 flex">
-            <h4>Latest Projects</h4>
-            <p class="sm14">"아래 작품들은 제가 학원에서 수료하는 동안 진행한 다양한 웹디자인 및 웹퍼블리싱 프로젝트들입니다. <span class="block"></span>
-                각 프로젝트는 최신 기술과 디자인 트렌드를 반영하여 제작되었으며, 실무에서의 적용 가능성을 염두에 두고 개발되었습니다."
-            </p>            
-            <ul class="list">
-                <li class="grid">
-                    <h3 class="h3">한국교직원공제회</h3>
-                    <figure>
-                        <img src="img/pf11.png" alt="공제회 홈페이지">
-                        <figcaption>공제회 홈페이지</figcaption>
-                    </figure>
-                    <ul class="sub">
-                        <li><strong class="bold">개요</strong>공제회 홈페이지 디자인 및 퍼블리싱</li>
-                        <li><strong class="bold">역할</strong>전체 디자인 및 프론트엔드 퍼블리싱</li>
-                        <li><strong class="bold">사용한 기술</strong>HTML5, CSS3, JavaScript, jQuery, Bootstrap</li>
-                        <li class="work">
-                            <strong class="bold">작업 과정</strong>
-                            <ul>
-                                <li>아이디어 구상 및 컨셉 설정</li>
-                                <li>와이어프레임 및 디자인 시안 제작</li>
-                                <li>HTML/CSS로 레이아웃 구현</li>
-                                <li>JavaScript/jQuery로 동적 요소 추가</li>
-                                <li>반응형 디자인 구현</li>
-                            </ul>
-                        </li>
-                        <li><strong class="bold">기여도</strong>80% (디자인, 퍼블리싱 및 테스트)</li>
-                        <li class="flex"><a href="#" class="block ">깃허브 소스보기</a><a href="ecommerce_live_link" class="block">작품보기</a></li>
-                    </ul>
-                </li>
-                <li class="grid">
-                    <h3 class="h3">알툴즈</h3>
-                    <figure>
-                        <img src="img/pf22.png" alt="알툴즈 홈페이지">
-                        <figcaption>알툴즈 홈페이지</figcaption>
-                    </figure>
-                    <ul class="sub">
-                        <li><strong class="bold">개요</strong>소프트웨어 홈페이지 디자인 및 퍼블리싱</li>
-                        <li><strong class="bold">역할</strong>전체 디자인 및 프론트엔드 퍼블리싱</li>
-                        <li><strong class="bold">사용한 기술</strong>HTML5, CSS3, JavaScript, React</li>
-                        <li class="work">
-                            <strong class="bold">작업 과정</strong>
-                            <ul>
-                                <li>컨셉 설정 및 아이디어 스케치</li>
-                                <li>와이어프레임 및 프로토타입 제작</li>
-                                <li>React를 사용한 컴포넌트 기반 개발</li>
-                                <li>CSS3로 스타일링 및 애니메이션 추가</li>
-                                <li>반응형 디자인 적용</li>
-                            </ul>
-                        </li>
-                        <li><strong class="bold">기여도</strong>100% (단독 프로젝트)</li>
-                        <li class="flex"><a href="#" class="block b-medium rounded border1">깃허브 소스보기</a><a href="projects_live_link" class="block  b-medium blue rounded"> 작품보기</a></li>
-                    </ul>
-                </li>
-                <li class="grid">
-                    <h3 class="h3">하이트진로</h3>
-                    <figure>
-                        <img src="img/pf33.png" alt="하이트진로 홈페이지">
-                        <figcaption>하이트진로 홈페이지</figcaption>
-                    </figure>
-                    <ul class="sub">    
-                        <li><strong class="bold">개요</strong>주류 업체 홈페이지 디자인 및 퍼블리싱</li>
-                        <li><strong class="bold">역할</strong>전체 디자인 및 프론트엔드 퍼블리싱</li>
-                        <li><strong class="bold">사용한 기술</strong>HTML5, CSS3, JavaScript, Vue.js</li>
-                        <li class="work">
-                            <strong class="bold">작업 과정</strong>
-                            <ul>
-                                <li>사용자 요구 분석 및 기능 정의</li>
-                                <li>와이어프레임 및 초기 디자인 시안 제작</li>
-                                <li>Vue.js를 사용한 컴포넌트 기반 개발</li>
-                                <li>CSS3로 스타일링 및 레이아웃 구성</li>
-                                <li>반응형 디자인 구현</li>
-                            </ul>
-                        </li>
-                        <li><strong class="bold">기여도</strong>90% (디자인, 퍼블리싱 및 테스트)</li>
-                        <li class="flex"><a href="#" class="block b-medium rounded border1">깃허브 소스보기</a><a href="blog_platform_live_link" class="block  b-medium blue rounded">작품보기</a></li>
-                    </ul>
-                </li>
-                <div class="rolling-area">
-                    <h4>Skill & Tools</h2>
-                    <ul class="rolling-list">
-                        <li class="rolling-item"><img src="img/skill1.jpg" alt="slide1"></li>
-                        <li class="rolling-item"><img src="img/skill2.jpg" alt="slide2"></li>
-                        <li class="rolling-item"><img src="img/skill3.jpg" alt="slide3"></li>
-                        <li class="rolling-item"><img src="img/skill4.jpg" alt="slide4"></li>
-                        <li class="rolling-item"><img src="img/skill5.jpg" alt="slide5"></li>
-                    </ul>
-                </div>  
-            </ul>                           
-        </div>
-    </section>
+    <!-- About Me  -->
     <section id="aboutme">
         <div class="wrap paddingT50 paddingB50 grid">
-            <h4>My Story</h4>
+            <h4>Professional Summary</h4>
             <div class="myphotoAni">
                 <img src="img/me (1).jpg">
                 <img src="img/me (2).jpg">
@@ -314,63 +270,174 @@
                 <img src="img/me (6).jpg">
             </div>
             <ul class="intro">
-                <li>
-                    <p class="h2">Min Choi</p>
-                </li>
                 <li>                    
-                    <p class="sm14">I recently completed a UIUX Designer course at EJEN Academy and gained hands-on experience through various projects in the course of my study. 
-                        Since I was young, I have been interested in various colors and designs such as fashion, interior, and art. 
-                        However, there were practical difficulties in choosing it as a career, so I had lived with the dreams folded. 
-                        In my 30s, I decided to start my journey as what I wanted, a UX designer. 
-                        Based on the skills and knowledge learned through studying and projects, I want to contribute creative web solutions to improve the user experience and provide an easier and more special web experience.
+                    <p class="sm14">
+                        Transitioned into Frontend Development after completing UI/UX Designer training at EJEN Academy
+
+                        Experienced in building responsive, component‑based web applications with modern frameworks
+
+                        Skilled in HTML5, CSS3, JavaScript, React, Vue.js, Bootstrap and frontend optimization techniques
+
+                        Hands‑on practice with version control (Git/GitHub), debugging, QA, and performance tuning
+
+                        Proficient in design collaboration tools such as Figma, Photoshop, Illustrator, ensuring seamless integration of UI/UX into development
+
+                        Dedicated to delivering clean, accessible, and scalable code that enhances user experience and recruiter‑facing impact
                     </p>
                 </li>               
             </ul>
             <ul class="info">
                 <li><strong></strong>hyeminc0706@gmail.com</li>
-                <li><strong></strong>+82-10-4010-0000</li>
+                <li><strong></strong>+1 703-336-2125</li>
                 <li><strong></strong>https://github.com/hyeminc0706</li>
             </ul>
         </div>
     </section>
+    <!-- Project  -->
+    <section id="projects">
+        <div class="wrap paddingB50 flex">
+            <h4>Latest Projects</h4>
+            <p class="sm14">
+                "The following works are web design and frontend development projects I created during my training and practice. 
+                Some are clone projects inspired by existing company websites, rebuilt from scratch to practice modern frontend techniques and responsive design."
+            </p>            
+            <ul class="list">
+                <!-- Clone Project -->
+                <li class="grid">
+                    <h3 class="h3">
+                        Korea Teachers' Credit Union 
+                        <span class="mobile-break">(Clone Project)</span>
+                    </h3>
+
+                    <figure>
+                        <img src="img/pf11.png" alt="Credit Union Website">
+                        <figcaption>Credit Union Website</figcaption>
+                    </figure>
+                    <ul class="sub">
+                        <li><strong class="bold">Overview</strong>UI/UX Design and Frontend Dev for a clone project <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inspired by the Credit Union website
+                        </li>
+                        <li><strong class="bold">Role</strong>UI/UX Design and Frontend Dev</li>
+                        <li><strong class="bold">Tech Stack</strong>HTML5, CSS3, JavaScript, jQuery, Bootstrap</li>
+                        <li class="work">
+                            <strong class="bold">Process</strong>
+                            <ul>
+                                <li>Concept ideation and planning</li>
+                                <li>Wireframe and design mockup creation</li>
+                                <li>Layout implementation with HTML/CSS</li>
+                                <li>Dynamic elements added with JavaScript/jQuery</li>
+                                <li>Responsive design implementation</li>
+                            </ul>
+                        </li>
+                        <li><strong class="bold">Contribution</strong>80% (UI/UX Design, Frontend Dev, QA & Debugging)</li>
+                        <li class="flex"><a href="#" class="block">View GitHub Source</a><a href="https://hyeminc0706.github.io/Clone_Project/" class="block">View Project</a></li>
+                    </ul>
+                </li>
+
+                <!-- Practice Project -->
+                <li class="grid">
+                    <h3 class="h3">ALTools (Practice Project)</h3>
+                    <figure>
+                        <img src="img/pf22.png" alt="ALTools Website">
+                        <figcaption>ALTools Website</figcaption>
+                    </figure>
+                    <ul class="sub">
+                        <li><strong class="bold">Overview</strong>Practice project focusing on React component-based 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; development and UI/UX Design</li>
+                        <li><strong class="bold">Role</strong>UI/UX Design and Frontend Dev</li>
+                        <li><strong class="bold">Tech Stack</strong>HTML5, CSS3, JavaScript, React</li>
+                        <li class="work">
+                            <strong class="bold">Process</strong>
+                            <ul>
+                                <li>Concept planning and idea sketching</li>
+                                <li>Wireframe and prototype creation</li>
+                                <li>Component-based development using React</li>
+                                <li>Styling and animations with CSS3</li>
+                                <li>Responsive design implementation</li>
+                            </ul>
+                        </li>
+                        <li><strong class="bold">Contribution</strong>100% (UI/UX Design, Frontend Dev, QA)</li>
+                        <li class="flex"><a href="#" class="block">View GitHub Source</a><a href="https://hyeminc0706.github.io/Practice_Project/" class="block">View Project</a></li>
+                    </ul>
+                </li>
+
+                <!-- Inspired Project -->
+                <li class="grid">
+                    <h3 class="h3">HiteJinro (Inspired Project)</h3>
+                    <figure>
+                        <img src="img/pf33.png" alt="HiteJinro Website">
+                        <figcaption>HiteJinro Website</figcaption>
+                    </figure>
+                    <ul class="sub">    
+                        <li><strong class="bold">Overview</strong>Inspired project using Vue.js to rebuild a brewery company website with responsive layout</li>
+                        <li><strong class="bold">Role</strong>UI/UX Design and Frontend Dev</li>
+                        <li><strong class="bold">Tech Stack</strong>HTML5, CSS3, JavaScript, Vue.js</li>
+                        <li class="work">
+                            <strong class="bold">Process</strong>
+                            <ul>
+                                <li>User requirements analysis and feature definition</li>
+                                <li>Wireframe and initial design mockup creation</li>
+                                <li>Component-based development using Vue.js</li>
+                                <li>Styling and layout with CSS3</li>
+                                <li>Responsive design implementation</li>
+                            </ul>
+                        </li>
+                        <li><strong class="bold">Contribution</strong>90% (UI/UX Design, Frontend Dev, QA & Debugging)</li>
+                        <li class="flex"><a href="#" class="block">View GitHub Source</a><a href="https://hyeminc0706.github.io/Inspired_Project/" class="block">View Project</a></li>
+                    </ul>
+                </li>
+            </ul>                           
+        </div>
+    </section>
+     <!-- contact -->
     <section id="contact">        
         <div class="container paddingT50 paddingB50 flex">
             <h4 class="form borderT">Contact</h4>
             <p>Let's build something great!</p>
-            <form action="action_page.php">
-                <label for="fname">Name</label>
-                <input type="text" id="name" placeholder="">
-            
-                <label for="lname">Email Address</label>
-                <input type="text" id="email" placeholder="">
-            
-                <label for="message">Message</label>
-                <textarea id="message" name="" placeholder="Example text" style="height:200px"></textarea>
-            </form>        
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+            <!-- Web3Forms Access Key -->
+            <input type="hidden" name="access_key" value="6f06663e-1ad9-4078-b679-90cc1be89fd0" />
+
+            <!-- Name -->
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+
+            <!-- Email -->
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required />
+
+            <!-- Message -->
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Example text" style="height:200px" required></textarea>
+
+            <!-- Submit -->
             <div class="send">
                 <input type="submit" value="Submit">
-            </div>  
+            </div>
+            </form>        
         </div>           
-    </section>    
+    </section>
+   
     <!-- 하단영역 -->
     <footer>
         <a href="" class="top">▲</a>
-        <div class="wrap paddingT50 paddingB50 grid">
+        <div class="grid">
             <h1><a href="index.html" class="logo block" target="_blank">Logo</a></h1>          
             <ul class="sns flex">
-                <li><a href="" class="block">In</a></li>
-                <li><a href="" class="block">Youtube</a></li>
-                <li><a href="" class="block">Github</a></li>
-                <li><a href="" class="block">Email</a></li>
+                <li><a href="https://www.instagram.com/hmcccch/" target="_blank" class="icon insta"></a></li>
+                <li><a href="https://www.youtube.com/@twofurries" target="_blank" class="icon youtube"></a></li>
+                <li><a href="https://github.com/hyeminc0706" target="_blank" class="icon github"></a></li>
+                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfax6qevPLmIhutBemJ5H5LokRhicIThQe51mQcjThCaJt8YA/viewform?usp=sf_link" target="_blank" class="icon email"></a></li>
             </ul>
             <ul class="fnb flex">
-                <li><a href="" class="block h2">Home</a></li>
-                <li><a href="" class="block h2">About Me</a></li>
-                <li><a href="" class="block h2">Project</a></li>
-                <li><a href="" class="block h2">Contact</a></li>
+                <p>Designing experiences that last. Collaboration? I'm</p>
+                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfax6qevPLmIhutBemJ5H5LokRhicIThQe51mQcjThCaJt8YA/viewform?usp=sf_link" target="_blank" class="block h2">here!</a></li>
             </ul>
             <ul class="email"><li>hyeminc0706@gmail.com</li></ul>
-            <ul class="phone"><li>+82 10-4010-3945</li></ul>
+            <ul class="phone"><li>+1 703-336-2125</li></ul>
             <p class="sm14">Website designed and developed by Hyemin Choi ©2024  All rights reserved.</p>
         </div>
     </footer>
