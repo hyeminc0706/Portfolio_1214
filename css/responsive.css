@@ -274,7 +274,7 @@
     padding: 20px 0;
     position: relative;
     z-index: 9999;
-    min-height: 0;
+    min-height: 6vh;
   }
   footer div{
   width: 100vw;
