@@ -257,61 +257,117 @@ a:hover{
   #aboutme .wrap .info li:last-child strong{
     background-image: url(../img/github.png);
   }
+
   /* 하단 */
-footer {
-    height: 50vh;
+  footer {
+    height: auto;
     min-height: 350px;
     color: white;
   }
-  footer a{
+
+  footer a {
     color: white;
+    text-decoration: none;
   }
+
+  footer a:hover {
+    color: #3ecbc8;
+  }
+
   footer div {
     height: 100%;
+    display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: repeat(3, 1fr);
     align-items: center;
   }
-  footer div .sns, .email, .phone{
-    display: flex;
-    justify-content: right; 
-  }
+
+  /* 로고 */
   footer .logo {
     grid-column: 1;
     grid-row: 1;
     background-image: url(../img/logowhite.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    width: 120px;
+    height: 40px;
   }
+
+  /* SNS 영역 */
   footer div .sns {
     grid-column: 2;
     grid-row: 1;
+    display: flex;
+    justify-content: right;
     column-gap: 1vw;
   }
+
+  /* SNS 아이콘 공통 스타일 */
+  footer .sns .icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  }
+
+  /* 각 플랫폼별 아이콘 이미지 */
+  footer .sns .insta {
+    background-image: url(../img/insta.png);
+  }
+  footer .sns .youtube {
+    background-image: url(../img/youtube.png);
+  }
+  footer .sns .github {
+    background-image: url(../img/github.png);
+  }
+  footer .sns .email {
+    background-image: url(../img/email.png);
+  }
+
+  /* hover 효과 */
+  footer .sns .icon:hover {
+    transform: scale(1.2);
+  }
+
+  /* 메뉴(fnb) */
   footer div .fnb {
     grid-column: 1;
     grid-row: 2;
+    display: flex;
     column-gap: 1vw;
   }
-  footer div .fnb li {
-    
-  }
+
   footer div .fnb li a {
-  
+    font-size: 1.2rem;
+    font-weight: 500;
   }
-  footer div .myinfo{
-  
-  }
-  footer div .email{
-    grid-column: 2;
-    grid-row: 3;
-  }
-  footer div .phone{
+
+  /* 연락처 */
+  footer div .phone {
     grid-column: 2;
     grid-row: 2;
+    display: flex;
+    justify-content: right;
   }
+
+  footer div .email {
+    grid-column: 2;
+    grid-row: 3;
+    display: flex;
+    justify-content: right;
+  }
+
+  /* 카피라이트 */
   footer div p {
     grid-column: 1;
     grid-row: 3;
+    font-size: 0.9rem;
+    color: #ccc;
   }
+
   /*마우스 이펙트*/
   .cursor{
     position: fixed;
