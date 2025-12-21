@@ -2,13 +2,19 @@
 @media screen and (max-width:768px){ 
   body{
     width: 100%;
+    padding-top: 60px
   }
-  
+  header{
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 9999;
+  }
   header div.wrap nav{
   grid-template-columns: 1fr auto;
   grid-template-rows: auto;
   display: grid;
-  max-width: 441px;
   position: relative;
   }
   header div nav h1{
@@ -37,20 +43,25 @@
   .hamburger.active .bar:nth-child(3){
     transform: translateY(-8px) rotate(-45deg);
   }
-  .nav-menu{
-    position: absolute;
-    top: -180px;
-    right: -25px;
-    gap: 0;
-    flex-direction: column;
-    background-color: #dddcdda1;
-    width: 40%;
-    text-align: center;
-    transition: 0.4s;
-    display: block !important;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-  }
+
+.nav-menu {
+  position: absolute;
+  top: 60px;                 /* 어디든 상관없지만 header 아래 추천 */
+  right: -15px;
+  width: 40%;
+  background-color: #dddcdda1;
+  flex-direction: column;
+  text-align: center;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: none;             /* 처음엔 숨김 */
+  z-index: 9999;
+}
+.nav-menu.active {
+  display: flex;             /* 클릭하면 보임 */
+  gap: 0px;
+}
+
   .nav-item:hover{
     background-color: #d5d5d5;
     border-top-left-radius: 20px;
@@ -61,9 +72,7 @@
     height: 50px;
     line-height: 3;
   }
-  .nav-menu.active{
-    top: 60px;
-  }
+
 
   #title{
     width: 100%;
@@ -128,7 +137,6 @@
   }
   #title .wrap .introimg{
     width: 48vw;
-    
     height: 27vh;
     position: absolute;
     top: 2vw;
@@ -147,8 +155,8 @@
     display: flex;
     flex-direction: column;
     width: 94vw;
-    height: 100vh;
-    padding: 10px;
+    padding-top: 7vh;
+    padding-bottom: 7vh;
   }
   #aboutme .wrap h2{
     font-size: 23px;
@@ -156,7 +164,7 @@
     padding-bottom: 12px;
   }
   #aboutme .wrap .myphotoAni{
-    height: 100%;
+    height: 60%;
     align-content: center;
   }
   #aboutme .wrap .myphotoAni img{
@@ -170,9 +178,7 @@
   #aboutme .wrap .intro .myself{
     padding: 7px;
   }
-  #aboutme .wrap .intro .sm14{
-    display: none;
-  }
+  
   #aboutme .wrap .info{
     display: none;
   }
@@ -190,7 +196,10 @@
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, auto);
     display: grid;
-    padding: 10px;
+    padding: 20px;
+  }
+   #projects .wrap .list li:nth-child(1){
+    height: auto;
   }
   #projects .wrap .list li:nth-child(2){
   grid-row: 2;
@@ -199,14 +208,25 @@
    #projects .wrap .list li:nth-child(3){
     grid-column: 1;
     grid-row: 3;
+    bottom: -8px;
   }
+  #projects .wrap .list li:nth-child(3) figure::after {
+  bottom: -8px;
+  }
+
   #projects .wrap .list li h3{
     grid-column: 1;
     grid-row: 1;
+    font-size: 17px;
+    font-weight: bold;
   }
   #projects .wrap .list li figure{
     grid-column: 1;
     grid-row: 2;
+  }
+  #projects .wrap .list li figure img{
+    padding-top: 2vh;
+    padding-bottom: 2vh;
   }
   #projects .wrap .list li .sub{
     grid-column: 1;
@@ -214,6 +234,10 @@
     display: flex;
     flex-wrap: wrap;
   }
+    #projects .wrap .list li:nth-child(3) .sub>li:nth-child(1){
+      padding-left: 2em; 
+      text-indent: -1em;
+  } 
   #projects .wrap .list li .sub .work{
     width: 0;
     height: 0;
@@ -229,23 +253,26 @@
     /*! margin-bottom: 5px; */
     margin-right: 10px;
   }
-  #projects .wrap p
-  #contact{
-    
+    #projects .wrap .list li h3 .mobile-break {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.9em; 
   }
-  /*하단*/
   
-  footer{
-    height: 20vw;
-    width: 100%;
+  /*하단*/
+  footer {
+    height: auto;
+    padding: 20px 0;
+    position: relative;
+    z-index: 9999;
+    min-height: 0;
   }
-  footer div.wrap{
-
-  width: 400px;
+  footer div{
+  width: 100vw;
   display: grid;
   height: 100%;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
   align-items: center;
   padding: 0;
   margin: 0;
@@ -274,6 +301,7 @@
     grid-column: 1;
     grid-row: 2;
     column-gap: 1vw;
+    display: none;
   }
   footer div .fnb li{
     padding-right: 10px;
@@ -282,20 +310,20 @@
     width: 66px;
   }
   footer div .email {
-    
+    display: none;
   }
   footer div .phone{
-    
+    display: none;
   }
   footer div p{
-    grid-column: 1;
+    grid-column: 1 / span 2;
     grid-row: 3;
+    display: none;
   }
   .cursor, .cursor2{
   display: none;
-  
-  
-}
+  }
+
 }
 
 @media screen and (max-width:1200px){ 
