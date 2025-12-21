@@ -14,9 +14,8 @@ header, #title, #aboutme, #projects, #contact{
 }
 /* 상단영역 */
 header{
-  width: 100%;
-  top: 0;
-  z-index: 9;
+  top: 0; 
+  width: 100%; 
 }
 header div nav h1 {
   display: flex;
@@ -370,7 +369,7 @@ main {
   align-items: center;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   padding-top: 4vw;
   padding-bottom: 4vw;
 }
@@ -489,8 +488,8 @@ main {
   align-items: center;
   justify-content: center;
   position: relative;
-  padding-top: 4vw;
-  padding-bottom: 4vw;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
   width: 100%;
   height: 100%;
 }
@@ -498,6 +497,7 @@ main {
   flex-direction: column;
   row-gap: 26px;
   overflow: hidden;
+  padding-top: 10vw;
 }
 #projects .wrap h4 {
   padding-bottom: 1.7vw;
@@ -549,7 +549,7 @@ main {
   height: 32em;
   margin-bottom: 60px;
 }
-#projects .wrap .list>li h3 {
+#projects .wrap .list li h3 {
   grid-column: 2;
   grid-row: 1;
 }
@@ -559,6 +559,7 @@ main {
   align-items: center; 
   grid-column: 1 / span 2;
   grid-row: 3;
+  padding-top: 8vw;
 }
 #projects .wrap .list div li{  
   display: grid;
@@ -566,7 +567,7 @@ main {
   grid-template-rows: auto 1fr auto;
 }
 #projects .wrap .list li h3{
-  grid-column: 2;
+  grid-column: 1 / span 2;
   grid-row: 1;
   justify-self: left;
   font-size: 25px;
@@ -621,8 +622,8 @@ main {
 #projects .wrap .list li:nth-child(3) figure::after{
   background-image: url(../img/pf1-phone.png);
   bottom: -120px;
-  width: 120px;
-  height: 120%;
+  width: 65px;
+  height: 100%;
 }
 #projects .wrap .list li .sub {
   grid-column: 2;
@@ -675,6 +676,7 @@ main {
   transition: 0.3s;
   background-image: url(../img/view-black.svg);
 }
+
 /* 프로세스 */
 #process{
  height:100%;
@@ -735,44 +737,88 @@ main {
   border-radius: 9px;
   background-color: #d0fb6fe0;
   border: 1px solid var(--black);
-}
+} 
+
 /* 컨텍 */
-#contact{
+#contact {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   width: 100%;
   height: 100%;
-  padding-bottom: 6vw;
+  padding-top: 10vw;
+  padding-bottom: 10vw;
   border-radius: 0 0 36px 36px;
 }
-#contact .container{
-  max-width: 342px;
+
+#contact .container {
+  max-width: 480px; /* 기존 342px → 넓게 조정 */
   flex-direction: column;
   height: 90%;
 }
-#contact .container .form{
+
+#contact .container .form {
   margin-bottom: 2.5vw;
   text-align: center;
   border-bottom: 1px solid black;
   width: 150px;
   padding-bottom: 7px;
 }
-#contact .container > p{
+
+#contact .container > p {
   margin-bottom: 3.3vw;
   font-size: 18px;
 }
-#contact .container > form{
+
+#contact .container > form {
   text-align: left;
 }
-#contact .container .send{
+
+#contact .container label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#contact .container input[type="text"],
+#contact .container input[type="email"],
+#contact .container textarea {
+  width: 100%;
+  min-width: 300px; /* 추가: 좁아지는 것 방지 */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+#contact .container .send {
   margin-top: 2.5vw;
 }
-#contact .container .send:hover{
+
+#contact .container .send input[type="submit"] {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#contact .container .send:hover {
   transform: scale(1.1);
   transition: .2s;
 }
+
+#contact .container input[type="text"],
+#contact .container input[type="email"],
+#contact .container textarea {
+  box-sizing: border-box;
+}
+
  /* Style inputs with type="text", select elements and textareas */
  input[type=text], select, textarea {
   width: 100%; /* Full width */
@@ -803,76 +849,123 @@ input[type=submit]:hover {
 
 /* 하단 */
 footer {
-  height: 50vh;
+  height: auto;
   min-height: 350px;
   color: white;
 }
-footer .logo{
+
+footer .logo {
   background-image: url(../img/logowhite.png);
+  background-size: contain;
+  background-repeat: no-repeat;
   animation: none;
+  display: block;
+  width: 120px;
+  height: 40px;
 }
-footer a{
+
+footer a {
   color: white;
+  text-decoration: none;
 }
-footer a:hover{
+
+footer a:hover {
   color: #3ecbc8;
 }
-footer a:hover{
-  color: 
-}
+
 footer div {
-  height: 100%;
+  height: 350px;
+  display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: repeat(3, 1fr);
   align-items: center;
 }
-footer div h1{
+
+footer div h1 {
   grid-column: 1;
   grid-row: 1;
   overflow: hidden;
   width: fit-content;
 }
-footer div .sns, .email, .phone{
+
+footer div .sns,
+footer div .email,
+footer div .phone {
   display: flex;
-  justify-content: right; 
+  justify-content: right;
 }
+
 footer div .sns {
   grid-column: 2;
   grid-row: 1;
   column-gap: 1vw;
 }
-.sns li:first-child a{
-  background-image: url(../img/instagram2.png);
+
+/* SNS 아이콘 공통 스타일 */
+footer .sns .icon {
+  display: inline-block;
   width: 25px;
   height: 25px;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.2s ease;
 }
+
+/* 각 플랫폼별 아이콘 이미지 */
+footer .sns .insta {
+  background-image: url(../img/insta.png);
+}
+footer .sns .youtube {
+  background-image: url(../img/youtube.png);
+}
+footer .sns .github {
+  background-image: url(../img/github.png);
+}
+footer .sns .email {
+  background-image: url(../img/email.png);
+}
+
+/* hover 효과 */
+footer .sns .icon:hover {
+  transform: scale(1.2);
+}
+
 footer div .fnb {
   grid-column: 1;
   grid-row: 2;
-  column-gap: 1vw;
+  display: flex;
+  column-gap: 0.3vw;
 }
+
 footer div .fnb li {
-  
 }
+
 footer div .fnb li a {
-
+  font-size: 1.2rem;
+  font-weight: 500;
 }
-footer div .myinfo{
 
+footer div .myinfo {
 }
-footer div .email{
+
+footer div .email {
   grid-column: 2;
   grid-row: 3;
 }
-footer div .phone{
+
+footer div .phone {
   grid-column: 2;
   grid-row: 2;
 }
+
 footer div p {
   grid-column: 1;
   grid-row: 3;
+  font-size: 0.9rem;
+  color: #ccc;
 }
+
 /*마우스 이펙트*/
 .cursor{
   position: fixed;
