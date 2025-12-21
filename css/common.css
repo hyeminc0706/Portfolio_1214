@@ -29,7 +29,7 @@ font-size: 14px
   font-weight: 700;
 }
 .paddingT50{
-  padding-top: 50px;
+  padding-top: px;
 }
 .paddingB50{
   padding-bottom: 50px;
@@ -75,7 +75,7 @@ font-size: 14px
 /*logo*/
 .logo{
   background-size: contain;
-  background-position: center;
+  background-position: left;
   background-repeat: no-repeat;
   animation-name: logo;
   animation-duration: 4s;  
