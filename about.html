@@ -21,9 +21,9 @@
     <meta name="keywords" content="루나브루,수제맥주,LUNABREW,회사소개">
     <meta  name="og:image"  content="https://www.daleseo.com/html-meta/thumbnail.png" />
     <!-- 구글폰트 -->
-    <link rel="preconnect" href="https//fonts.googleapis.com">
-    <link rel="preconnect" href="https//fonts.gstatic.com" crossorigin>
-    <link href="https//fonts.googleapis.com/css2?family=Noto+Sans+KRwght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KRwght@100..900&display=swap" rel="stylesheet">
     <!--슬릭-->
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
@@ -159,20 +159,6 @@
             });
         });
 
-                 // .intron span a 클릭시 해당 스크롤 이동
-        $(document).ready(function(){    
-            var c=[       
-            $("#contact").offset().top,     
-            $("#projects").offset().top            
-            ];      
-            var n; 
-            $("#title .wrap .intro span a").click(function(){               
-                n = $(this).index();
-                $("html,body").animate({scrollTop:c[n]},1500);  
-                    return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨...
-            }); 
-        });
-
     </script> 
     </script>
     
@@ -255,7 +241,7 @@
                 <span>
                     <a href="">Let's talk</a>
                     <a href="">Project</a>        
-                </li>
+                </span>
             </div>  
             <div class="introimg">
                 <figure>                    
