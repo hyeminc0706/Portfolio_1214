@@ -1,4 +1,4 @@
-😄 I'm Min Choi, passionate UIUX Designer based in VA, U.S.
+😄 I'm Mina Choi, passionate UIUX Designer based in CA, U.S.
 
 📫 Contact Info.
     hyeminc0706@gmail.com
