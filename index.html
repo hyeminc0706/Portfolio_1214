@@ -24,13 +24,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KRwght@100..900&display=swap" rel="stylesheet">
-    <!--슬릭-->
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script> 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
-    <script type="text/javascript">   
+	<!-- 슬릭 CSS -->
+	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+	
+	<!-- jQuery (최신 안정 버전, https) -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+	<!-- slick JS (jQuery 아래에 있어야 함) -->
+	<script src="slick/slick.min.js"></script>
+	
+	<!-- 너의 스크립트 시작 -->
+	<script type="text/javascript">
+
         $(document).ready(function(){
             $('.introAni').slick({
                 slidesToShow: 1,
@@ -448,3 +454,4 @@
 </body>
 
 </html>
+
