@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Min's Portfolio</title>
+    <title>Mina's Portfolio</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/responsive.css">  
-    <!--검색엔진 설정 -->
-    <meta property="og:title" content="Mina Choi's Portfolio">
-    <meta property="og:description" content="UIUX Designer based in VA, US">
-    <meta  name="og:image" content="img/thumbnail.png">
-    <!-- <meta property="og:type" content="website">
+    <!--상세 페이지 연결--> 
+    <link rel="stylesheet" href="css/aboutme.css">
+    <!--검색엔진 설정 *수정필요!!!!!!*-->
+    <meta property="og:type" content="website">
     <meta property="og:url" content="http://luna-brew.com/">
-    <meta property="og:keywords" content="루나브루,수제맥주,LUNABREW,회사소개">    
+    <meta property="og:description" content="국내 유일의 수제맥주 전문 기업">
+    <meta property="og:keywords" content="루나브루,수제맥주,LUNABREW,회사소개">
+    <meta property="og:title" content="루나브루">
     <meta name="description" content="대한민국 모든 수제맥주의 플랫폼">
-    <meta name="keywords" content="루나브루,수제맥주,LUNABREW,회사소개"> -->
+    <meta name="keywords" content="루나브루,수제맥주,LUNABREW,회사소개">
+    <meta  name="og:image"  content="https://www.daleseo.com/html-meta/thumbnail.png" />
     <!-- 구글폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,24 +29,7 @@
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
     <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery-3.7.1.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
-    <script type="text/javascript" src="slick/slick.js"></script>
-    <script type="text/css" src="slick/slick.css"></script>
-    <script type="text/css" src="slick/slick-theme.css"></script>
-    <script type="text/javascript" src="aos/aos.js"></script>
-    <script type="text/css" src="aos/aos.css"></script>
-    <!--AOS-->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        $(document).ready(function(){
-            AOS.init(); 
-        });
-    </script>
     <script type="text/javascript">   
         $(document).ready(function(){
             $('.introAni').slick({
@@ -74,25 +59,60 @@
             });
         }); 
     </script>   
-    <script>       
- 
-         // (반응형).nav-item 클릭시 스크롤 이동 
-         $(document).ready(function(){    
-            var c=[      
-            $("#aboutme").offset().top,
-            $("#projects").offset().top,  
-            $("#contact").offset().top       
+    <script>
+        //스크롤 이미지 애니메이션
+        $(document).ready(function() {
+            $(window).scroll( function(){                    
+                $("body>*").each( function(i){                    
+                    var bottom_of_element = $(this).offset().top + $(this).outerHeight()/7;
+                    var bottom_of_window = $(window).scrollTop() + $(window).height();                    
+                    if( bottom_of_window > bottom_of_element ){
+                        $(this).animate({'opacity':'1'},700);
+                    }                    
+                }); 
+            });
+        });    
+        //대메뉴 클릭시, 스크롤 바로가기 기능
+        $(document).ready(function(){            
+            $("header div nav .gnb li").click(function(){                
+                var n = $(this).index();
+
+                // 클릭할 때마다 최신 위치 계산
+                var c = [
+                $("#aboutme").offset().top,            
+                $("#projects").offset().top,            
+                $("#contact").offset().top
+                ];
+
+                $("html, body").animate(
+                { scrollTop: c[n] - 10 }, 
+                1500
+                );
+
+                return false;
+            });            
+            // 하단부분보이면 위로가기 버튼 보여지게 스크롤이벤트
+			var ft=$("footer").offset().top - $(window).height();			
+			$(window).scroll(function(){
+				if($(window).scrollTop()>ft){
+					$("footer a").fadeIn();
+				}else{
+					$("footer a").fadeOut();
+				}				
+			});
+        });
+        // .intron span a 클릭시 해당 스크롤 이동
+        $(document).ready(function(){    
+            var c=[       
+            $("#contact").offset().top,     
+            $("#projects").offset().top            
             ];      
             var n; 
-            $("li.nav-item").click(function(){               
+            $("#title .wrap .intro span a").click(function(){               
                 n = $(this).index();
                 $("html,body").animate({scrollTop:c[n]},1500);  
-                    return false;// a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨...
+                    return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨...
             }); 
-            $(".nav-link").click(function(){
-                $(".nav-menu").removeClass("active");
-                $(".hamburger").removeClass("active");
-            });
         });
         $(document).ready(function(){ 
             $("footer .top").click(function(){
@@ -101,7 +121,28 @@
             });
         
         });
-        
+        // (반응형).nav-item 클릭시 스크롤 이동 
+        $(document).ready(function(){    
+
+            var c = [
+                $("#aboutme").offset().top,
+                $("#projects").offset().top,
+                $("#contact").offset().top
+            ];
+
+            $("li.nav-item").click(function(e){               
+                e.preventDefault(); // a 태그 기본 동작 방지
+
+                var n = $(this).index();
+                $("html,body").animate({scrollTop:c[n]},1500);
+            }); 
+
+            $(".nav-link").click(function(){
+                $(".nav-menu").removeClass("active");
+                $(".hamburger").removeClass("active");
+            });
+        });
+
         $(document).ready(function(){ 
             // burgerbutton 클릭시 버거메뉴 열기
             $(".hamburger").click(function(){
@@ -124,21 +165,7 @@
             });
         });
 
-                 // .intro span a 클릭시 해당 스크롤 이동
-        $(document).ready(function(){    
-            var c=[       
-            $("#contact").offset().top,     
-            $("#projects").offset().top            
-            ];      
-            var n; 
-            $("#title .wrap .intro span a").click(function(){               
-                n = $(this).index();
-                $("html,body").animate({scrollTop:c[n]},1500);  
-                    return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨...
-            }); 
-        });
-
-    </script> 
+    </script>     
 </head>
 <body>    
     <div class="cursor"></div>
@@ -168,7 +195,7 @@
 
                 <!-- SNS 아이콘 -->
                 <div class="rgnb flex">
-                    <a href="https://www.linkedin.com/in/min-choi-0586a7321/" target="_blank" class="social-icon w-inline-block">
+                    <a href="https://www.instagram.com/minachoia" target="_blank" class="social-icon w-inline-block">
                     <img src="https://assets-global.website-files.com/606694bd40508c617a3f20fb/60676cf28d2cabcd51294d2d_linkedin.svg" width="19">
                     </a>
                     <a href="https://forms.gle/QfzvRucYFk6DGUGo9" target="_blank" class="social-icon w-inline-block">
@@ -189,11 +216,10 @@
                     <li class="nav-item"><a href="" class="nav-link">Projects</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Contact</a></li>
                 </ul>
-
             </nav>
         </div>
     </header>
-    <script src="script.js"></script>
+
     <!-- 타이틀영역 -->
     <div id="title">
         <div class="wrap">
@@ -205,12 +231,12 @@
                 </ul>
                 <ul>                            
                     <p class="two">                        
-                        <strong> UIUX Designer </strong>
-                        based in VA, US
+                            <strong> UI/UX designer </strong>
+                            based in Seoul, South Korea
                     </p>  
                 </ul>
                 <div>         
-                    <p class="self">Hi! I'm Min,</p>
+                    <p class="self">Hi! I'm Mina,</p>
                     <p>   
                     I deliever easy and efficient experience for the targetted users.
                     </p> 
@@ -228,12 +254,14 @@
             </div>   
         </div>
         <div class="updatetime">
-            <p>Last updated</p><p>09 - 01 - 2024</p>
+            <p>Last updated</p><p>12 - 14 - 2025</p>
         </div>
     </div>
+    
     <!-- 메인 -->
+    <!-- About Me  -->
     <section id="aboutme">
-        <div class="wrap paddingT50 paddingB50 grid" data-aos="fade-up">
+        <div class="wrap paddingT50 paddingB50 grid">
             <h4>Professional Summary</h4>
             <div class="myphotoAni">
                 <img src="img/me (1).jpg">
@@ -243,42 +271,28 @@
                 <img src="img/me (5).jpg">
                 <img src="img/me (6).jpg">
             </div>
-            <div class="intro">
-                <ul class="myself">
-                    <li>
-                        <p>Completed a 6‑month onsite UI/UX Designer certification at EJEN Academy.
-                           
-                            Marketing background in user behavior and content strategy.
-                            Actively learning additional design and development tools.
-                        </p>
-                    </li>
-                </li>
-                </ul> 
-                <ul class="skills&tools sm14">
-                    <li>    
-                        <span>
-                            <p>Skills & Tools</p>
-                        </span>
-                        <span><p>Frontend: </p>
-                            <p> HTML, CSS, JavaScript, jQuery, Typography, RWD, SEO</p>
-                        </span>
-                        <span><p>Design: </p>
-                            <p> Photoshop, Illustrator, Figma, Balsamiq, Almind, Premier, Affter Effects, Kakao Oven, Prototype, Wireframing</p>
-                        </span>
-                        <span><p>Framework & Library: </p>
-                            <p> Vue, Bootstrap</p>
-                        </span>
-                        <span><p>Other: </p>
-                            <p> VS Code, Atom Editor, Emmet, Sass, SEO, User Research</p>
-                        </span>                
-                    </li>
-                </ul>       
-            </div>
+            <ul class="intro">
+                <li>                    
+                    <p class="sm14">
+                        Transitioned into Frontend Development after completing UI/UX Designer training at EJEN Academy
+
+                        Experienced in building responsive, component‑based web applications with modern frameworks
+
+                        Skilled in HTML5, CSS3, JavaScript, React, Vue.js, Bootstrap and frontend optimization techniques
+
+                        Hands‑on practice with version control (Git/GitHub), debugging, QA, and performance tuning
+
+                        Proficient in design collaboration tools such as Figma, Photoshop, Illustrator, ensuring seamless integration of UI/UX into development
+
+                        Dedicated to delivering clean, accessible, and scalable code that enhances user experience and recruiter‑facing impact
+                    </p>
+                </li>               
+            </ul>
             <ul class="info">
                 <li><strong></strong>hyeminc0706@gmail.com</li>
-                <li><strong></strong>+82-10-4010-0000</li>
+                <li><strong></strong>+1 703-336-2125</li>
                 <li><strong></strong>https://github.com/hyeminc0706</li>
-            </ul>  
+            </ul>
         </div>
     </section>
     <!-- Project  -->
@@ -379,33 +393,43 @@
             </ul>                           
         </div>
     </section>
-    <!-- Contact -->
+     <!-- contact -->
     <section id="contact">        
-        <div class="container paddingT50 paddingB50 flex" data-aos="fade-up">
+        <div class="container paddingT50 paddingB50 flex">
             <h4 class="form borderT">Contact</h4>
             <p>Let's build something great!</p>
-            <form action="action_page.php">
-                <label for="fname">Name</label>
-                <input type="text" id="name" placeholder="">
-            
-                <label for="lname">Email Address</label>
-                <input type="text" id="email" placeholder="">
-            
-                <label for="message">Message</label>
-                <textarea id="message" name="" placeholder="Example text" style="height:200px"></textarea>
-            </form>        
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+            <!-- Web3Forms Access Key -->
+            <input type="hidden" name="access_key" value="6f06663e-1ad9-4078-b679-90cc1be89fd0" />
+
+            <!-- Name -->
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+
+            <!-- Email -->
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required />
+
+            <!-- Message -->
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Example text" style="height:200px" required></textarea>
+
+            <!-- Submit -->
             <div class="send">
                 <input type="submit" value="Submit">
-            </div>  
+            </div>
+            </form>        
         </div>           
-    </section>    
+    </section>
+   
     <!-- 하단영역 -->
     <footer>
         <a href="" class="top">▲</a>
         <div class="grid">
             <h1><a href="index.html" class="logo block" target="_blank">Logo</a></h1>          
             <ul class="sns flex">
-                <li><a href="https://www.instagram.com/hmcccch/" target="_blank" class="icon insta"></a></li>
+                <li><a href="https://www.instagram.com/minachoia" target="_blank" class="icon insta"></a></li>
                 <li><a href="https://www.youtube.com/@twofurries" target="_blank" class="icon youtube"></a></li>
                 <li><a href="https://github.com/hyeminc0706" target="_blank" class="icon github"></a></li>
                 <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfax6qevPLmIhutBemJ5H5LokRhicIThQe51mQcjThCaJt8YA/viewform?usp=sf_link" target="_blank" class="icon email"></a></li>
