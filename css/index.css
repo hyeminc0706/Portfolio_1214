@@ -808,6 +808,8 @@ main {
 }
 
 #contact .container .send {
+  display: flex;
+  justify-content: center;
   margin-top: 2.5vw;
 }
 
