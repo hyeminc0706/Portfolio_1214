@@ -1,3 +1,4 @@
+/*a hover 일부 적용*/
 a:not(header div .gnb li a, #title .wrap .intro span a):hover {
   transform: scale(1.1);
   transition: .5s;
@@ -373,9 +374,7 @@ header div nav .rgnb a:nth-of-type(2){
   column-gap: 30px;
   padding-left: 30px;
 }
-main {
-  
-}
+
 /* 어바웃 */
 #aboutme {
   display: flex;
@@ -808,8 +807,8 @@ main {
 }
 
 #contact .container .send {
-  display: flex;
-  justify-content: center;
+  display: flex; 
+  justify-content: center; 
   margin-top: 2.5vw;
 }
 
