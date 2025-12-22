@@ -12,6 +12,19 @@ body, header{
 header, #title, #aboutme, #projects, #contact{
   background-color: whitesmoke;
 }
+
+/*background*/
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  transition: opacity 2s ease; /* 페이드아웃 부드럽게 */
+}
+
 /* 상단영역 */
 header{
   top: 0; 
