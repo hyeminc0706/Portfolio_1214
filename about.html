@@ -74,17 +74,23 @@
         });    
         //대메뉴 클릭시, 스크롤 바로가기 기능
         $(document).ready(function(){            
-            var c=[
-            $("#aboutme").offset().top,            
-            $("#projects").offset().top,            
-            $("#contact").offset().top
-            ];      
-            var n; 
             $("header div nav .gnb li").click(function(){                
-                n = $(this).index();
-                $("html,body").animate({scrollTop:c[n]},1500);  
-                    return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨...
-            });               
+                var n = $(this).index();
+
+                // 클릭할 때마다 최신 위치 계산
+                var c = [
+                $("#aboutme").offset().top,            
+                $("#projects").offset().top,            
+                $("#contact").offset().top
+                ];
+
+                $("html, body").animate(
+                { scrollTop: c[n] - 10 }, 
+                1500
+                );
+
+                return false;
+            });            
             // 하단부분보이면 위로가기 버튼 보여지게 스크롤이벤트
 			var ft=$("footer").offset().top - $(window).height();			
 			$(window).scroll(function(){
