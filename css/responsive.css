@@ -262,9 +262,6 @@
   .sub .indent2{
     margin-left: 0px;
   }
-  #projects .wrap .list li:nth-child(3) .sub .indent2{
-    margin-left: 0px;
-  }
   #projects .wrap .list li:nth-child(3) .sub>li:nth-child(1){
     padding-left: 2em; 
     text-indent: -1em;
