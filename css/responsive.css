@@ -260,13 +260,13 @@
     padding-right: 5px;
   }
   .sub .indent1{
-    text-indent: -80px;
+    text-indent: -83px;
   }
   .sub .indent2{
-    margin-left: 80px;
+    margin-left: 0px;
   }
   #projects .wrap .list li:nth-child(3) .sub .indent2{
-  margin-left: 80px;
+  margin-left: 0px;
   }
 margin-left: 46px;
   #projects .wrap .list li:nth-child(3) .sub>li:nth-child(1){
