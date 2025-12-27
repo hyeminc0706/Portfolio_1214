@@ -299,6 +299,7 @@
     position: relative;
     z-index: 9999;
     width: 100vw;
+    min-height: 5vh;
   }
   footer div{
   display: grid;
