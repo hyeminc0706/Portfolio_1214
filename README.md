@@ -1,8 +1,8 @@
-# Personal Portfolio Website
+# 📁 Personal Portfolio Website
 
 ## 🔍 Overview
-A fully responsive personal portfolio website designed to showcase my UI/UX engineering work, frontend development skills, and selected case studies.<br>
-Built with a clean layout, smooth interactions, and a focus on clarity and usability for recruiters and hiring managers.
+A personal portfolio website built to showcase my UI/UX design process, frontend development skills, and selected case studies.  
+Designed with a clean layout, smooth interactions, and a focus on clarity for recruiters and hiring managers.
 
 ▶︎ **Live Site:** https://hyeminc0706.github.io/Portfolio_1214/  
 ▶︎ **GitHub Projects:** Linked within each case study
@@ -10,33 +10,33 @@ Built with a clean layout, smooth interactions, and a focus on clarity and usabi
 ---
 
 ## 🎯 Purpose
-This portfolio highlights my approach to UI/UX design, component-based development, and responsive interface building.  
-It serves as a central hub for my projects, resume, and professional background.
+This portfolio serves as a central hub for my projects, design approach, and professional background.  
+It highlights my strengths in UI/UX design, frontend development, and building polished user interfaces.
 
 ---
 
 ## 🛠️ Tech Stack
 - **HTML5** — Structure and semantic layout  
-- **CSS3** — Styling, animations, responsive design  
+- **CSS3** — Styling, animations, layout  
 - **JavaScript** — Interactivity and UI behavior  
-- **AOS / GSAP (if used)** — Smooth scroll animations and transitions  
+- **AOS** — Scroll‑based animations  
 
 ---
 
 ## 🧩 Features
-- Fully responsive design across desktop, tablet, and mobile  
 - Clean, minimal UI optimized for readability  
 - Smooth animations and transitions  
-- Project pages with detailed case studies  
+- Project sections with detailed case studies  
 - GitHub and live demo links for each project  
-- Modular structure for easy updates and scalability  
+- Organized structure for easy updates and scalability  
 
 ---
 
 ## 📁 Project Sections Included
 - Korea Teachers’ Credit Union (Clone Project)  
+- ALTools (Practice Project)  
 - HiteJinro (Inspired Project)  
-- Additional frontend/UI/UX works  
+- Additional UI/UX and frontend works  
 
 ---
 
@@ -49,4 +49,4 @@ It serves as a central hub for my projects, resume, and professional background.
 
 ## 📌 Contribution
 **100% Ownership**  
-Design · Development · Content · Structure  
+UI/UX Design · Frontend Development · QA & Debugging
