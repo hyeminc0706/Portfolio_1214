@@ -260,15 +260,18 @@
     padding-right: 5px;
   }
   .sub .indent1{
-    text-indent: 0px;
-    margin-left: 0px;
-    display: inherit;
-}
+    text-indent: -80px;
+  }
   .sub .indent2{
-    margin-left: 0px;
-}
-
+    margin-left: 80px;
+  }
+  #projects .wrap .list li:nth-child(3) .sub .indent2{
+  margin-left: 80px;
+  }
+margin-left: 46px;
   #projects .wrap .list li:nth-child(3) .sub>li:nth-child(1){
+    padding-left: 2em; 
+    text-indent: -1em;
   } 
   #projects .wrap .list li .sub .work{
     width: 0;
