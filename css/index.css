@@ -403,7 +403,7 @@ header div nav .rgnb a:nth-of-type(2){
 }
 #aboutme .wrap .myphotoAni{
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 1 / span 3;
   width: 306px;
   height: 386px;
   overflow: hidden;
@@ -656,13 +656,23 @@ header div nav .rgnb a:nth-of-type(2){
 #projects .wrap .list li .sub li strong {
   width: 110px;
   display: inline-block;
-  color: #3c3c3c;;
+  color: #3c3c3c;
 }
-#projects .wrap .list li .sub li ul {
- 
+#projects .wrap .list>li:nth-child(1) .sub li ul{
+   margin-left: 5px;
 }
 #projects .wrap .list li .sub li ul li {
  letter-spacing: 0.3px;
+}
+.sub .indent1 {
+  display: inline-block;
+  text-indent: -90px; /* strong 너비만큼 음수 */
+  margin-left: 84px;  /* strong 너비만큼 양수 */
+}
+.sub .indent2 {
+  /* display: inline-block; */
+  /* text-indent: -90px; */ /* strong 너비만큼 음수 */
+  margin-left: 109px;  /* strong 너비만큼 양수 */
 }
 #projects .wrap .list li .sub li a {
   z-index: 99;
@@ -798,7 +808,7 @@ header div nav .rgnb a:nth-of-type(2){
 #contact .container input[type="email"],
 #contact .container textarea {
   width: 100%;
-  min-width: 300px; /* 추가: 좁아지는 것 방지 */
+  min-width: 350px; /* 추가: 좁아지는 것 방지 */
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #000;
@@ -871,11 +881,13 @@ footer {
 footer .logo {
   background-image: url(../img/logowhite.png);
   background-size: contain;
+  background-position: left;
   background-repeat: no-repeat;
   animation: none;
   display: block;
-  width: 120px;
+  width: 115px;
   height: 40px;
+  margin-left: -15px;
 }
 
 footer a {
@@ -889,10 +901,11 @@ footer a:hover {
 
 footer div {
   height: 350px;
-  display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: repeat(3, 1fr);
   align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 footer div h1 {
