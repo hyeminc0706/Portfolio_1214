@@ -1,8 +1,9 @@
 # 📁 Personal Portfolio Website
 
 ## 🔍 Overview
-A personal portfolio website built to showcase my UI/UX design process, frontend development skills, and selected case studies.  
+A personal portfolio website built to showcase my end‑to‑end UI/UX design process, frontend development skills, and selected case studies.  
 Designed with a clean layout, smooth interactions, and a focus on clarity for recruiters and hiring managers.
+<img width="1860" height="868" alt="image" src="https://github.com/user-attachments/assets/f5ac1411-755d-4b6d-9c41-050988a1baf3" />
 
 ▶︎ **Live Site:** https://hyeminc0706.github.io/Portfolio_1214/  
 ▶︎ **GitHub Projects:** Linked within each case study
@@ -15,11 +16,11 @@ It highlights my strengths in UI/UX design, frontend development, and building p
 
 ---
 
-## 🛠️ Tech Stack
-- **HTML5** — Structure and semantic layout  
-- **CSS3** — Styling, animations, layout  
-- **JavaScript** — Interactivity and UI behavior  
-- **AOS** — Scroll‑based animations  
+## 🛠 Tech Stack
+- **HTML5**, **CSS3**, **JavaScript**
+- **Sass (SCSS)** — Modular styling
+- **AOS** — Scroll animations
+- **Slick Slider** — Carousel & slider UI
 
 ---
 
@@ -33,17 +34,15 @@ It highlights my strengths in UI/UX design, frontend development, and building p
 ---
 
 ## 📁 Project Sections Included
-- Korea Teachers’ Credit Union (Clone Project)  
-- ALTools (Practice Project)  
-- HiteJinro (Inspired Project)  
-- Additional UI/UX and frontend works  
+- **HiteJinro — Inspired Redesign**  
+- **ALTools — Practice UI/UX Project**  
+- **KTCU — Frontend Clone Project**
 
 ---
 
 ## 🚀 Future Improvements
 - Adding more interactive components  
 - Expanding case studies with deeper UX documentation  
-- Improving performance and accessibility scores  
 
 ---
 
