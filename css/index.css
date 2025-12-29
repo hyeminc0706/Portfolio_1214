@@ -669,7 +669,7 @@ header div nav .rgnb a:nth-of-type(2) {
 }
 
 #projects .wrap .list li figure img {
-    transform: translateX(-1px);
+    transform: translateX(18px);
     width: 100%;
     height: 100%;
     max-width: 743px;
@@ -700,6 +700,7 @@ header div nav .rgnb a:nth-of-type(2) {
 
 #projects .wrap .list li:nth-child(1) figure::after {
     background-image: url("../img/pf1-phone.png");
+    display: none;
 }
 
 #projects .wrap .list li:nth-child(2) figure::after {
