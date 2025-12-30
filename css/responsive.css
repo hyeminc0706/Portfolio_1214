@@ -242,6 +242,10 @@
   #projects .wrap .list li figure img{
     padding-top: 2vh;
     padding-bottom: 2vh;
+    transform: translateX(9px) translateY(2px);
+  }
+  #projects .wrap .list li:nth-child(3) figure img {
+    transform: translateX(10px) translateY(21px);
   }
   #projects .wrap .list li .sub{
     grid-column: 1;
