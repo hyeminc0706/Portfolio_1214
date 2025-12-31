@@ -42,12 +42,9 @@ header .logo {
 }
 
 header div nav .gnb {
-    box-sizing: border-box;
     width: 295px;
     height: 40px;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.75);
-    border-radius: 20px;
     position: fixed;
     right: 40.5vw;
     align-items: center;
@@ -388,17 +385,7 @@ header div nav .rgnb a:nth-of-type(2) {
     background-color: white;
 }
 
-#title .wrap .intro span a:nth-of-type(1) {
-    background-color: rgb(42, 41, 41);
-    color: white;
-}
-
-#title .wrap .intro span a:nth-of-type(1):hover {
-    background-color: rgb(255, 255, 255);
-    color: black;
-}
-
-#title .wrap .intro span a:nth-of-type(2):hover {
+#title .wrap .intro span a:hover {
     background-color: black;
     color: white;
 }
@@ -434,41 +421,21 @@ header div nav .rgnb a:nth-of-type(2) {
     display: flex;
     align-items: center;
     position: relative;
-    width: 100%;
-    height: 100%;
-    padding-top: 4vw;
-    padding-bottom: 4vw;
+    padding-top: 20vh;
+    padding-bottom: 4vh;
 }
 
 #aboutme .grid {
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto 100px;
     margin: 0px auto;
-    border-radius: 76px;
-    place-items: center;
-    padding: 4vw;
-}
-
-#aboutme .grid:hover {
     border: 1px solid black;
-    border-radius: 76px;
-    transform: scale(0.9);
-    transition: 0.4s;
-}
-
-#aboutme .wrap .myphotoAni {
-    grid-area: 1 / 1 / span 3;
-    width: 306px;
-    height: 386px;
-    overflow: hidden;
-    transform: translateY(14px);
-    border-radius: 0px 44px;
-    margin-right: 38px;
-}
-
-.myphotoAni:hover {
-    transition: 1s;
-    transform: scale(1.4);
+    border-radius: 60px;
+    place-items: center;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    gap: 60px;
+    width: 90vw;
 }
 
 #aboutme .wrap h4 {
@@ -477,18 +444,6 @@ header div nav .rgnb a:nth-of-type(2) {
 
 #aboutme .wrap .photoAni figure {
     grid-area: 2 / 2 / span 2;
-}
-
-#aboutme .wrap .photoAni figure img {
-    background-image: url("../img/me3.jpg;");
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    padding-bottom: 20px;
-}
-
-#aboutme .wrap .photoAni figure figcaption {
-    display: none;
 }
 
 #aboutme .wrap .intro {
@@ -525,7 +480,7 @@ header div nav .rgnb a:nth-of-type(2) {
     display: flex;
     vertical-align: middle;
     border-radius: 50%;
-    margin-right: 10px;
+    justify-content: center;
 }
 
 #aboutme .wrap .info li:nth-child(1) strong {
@@ -1012,8 +967,8 @@ footer .sns .insta {
     background-image: url("../img/insta.png");
 }
 
-footer .sns .youtube {
-    background-image: url("../img/youtube.png");
+footer .sns .linkedin {
+    background-image: url("../img/linkedin.png");
 }
 
 footer .sns .github {
