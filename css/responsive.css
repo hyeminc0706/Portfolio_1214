@@ -76,7 +76,7 @@
 
   #title{
     width: 100%;
-    height: 100vh;    
+    height: 90vh;
   }
   #title::before{
     content:"";
@@ -100,12 +100,12 @@
     font-size: 10px;
   }
   #title .wrap .intro {
-    height: 47vh; 
+    height: 47vh;
     width: 100%;
-    padding-top: 15vh;
+    padding-top: 18vh;
   }
   #title::after{
-    top: 86.2vh;
+    top: 83.2vh;
     width: 30px;
     height: 30px;
   }
@@ -136,7 +136,7 @@
     width: 100vw;
     height: 30vh;
     position: absolute;
-    top: 2vw;
+    top: 9vw;
   }
   #title .wrap .introimg figure{
     width: 100%;
@@ -154,16 +154,18 @@
  /*About Me*/
   #aboutme{
     width: 100%;
-    height: 100vh;
+    height: 470px;
     max-with: 460px;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
   }
   #aboutme .grid{
-    display: flex;
-    flex-direction: column;
-    width: 94vw;
-    padding-top: 7vh;
-    padding-bottom: 7vh;
-  }
+      display: flex;
+      flex-direction: column;
+      width: 94vw;
+      height: 100%;
+      padding: 80px 20px 40px 20px;
+}
   #aboutme .wrap h2{
     font-size: 23px;
     opacity: 0.7;
@@ -198,7 +200,7 @@
     text-indent: 0.2em;
   }
   #aboutme .wrap .info{
-    display: none;
+  display: none;
   }
   /*Project*/
   #projects{
