@@ -1,6 +1,6 @@
 /* 모바일 (max-width: 768px) */
 @media screen and (max-width: 768px) {
-  
+
   /* Header */
   body {
     width: 100%;
@@ -150,6 +150,10 @@
     background-repeat: no-repeat;
     animation: titleSlideIn 2s;
   }
+  #title .wrap .introimg figure:hover{
+    transition: 0s;
+    transform: scale(1);
+  }
   #title .updatetime {
     display: none;
   }
@@ -267,6 +271,12 @@
   }
   #projects .wrap .list li .sub li a {
     transform: scale(1);
+    background-color: white;
+    color: black;
+  }
+  #projects .wrap .list li .sub li a:hover{
+    background-color: white;
+    color: black;
   }
   #projects .wrap .list li .sub li strong {
     width: auto;
@@ -312,6 +322,10 @@
     align-items: center;
     height: 100%;
     margin: 10px 15px 10px 20px;
+  }
+  footer .sns .icon:hover {
+    transform: scale(1);
+    transition: 0s;
   }
   footer .top {
     display: none;
@@ -362,10 +376,6 @@
   #contact .container .send input[type="submit"]:hover {
     transform: none;
     transition: 0s;
-  }
-  a:not(header div .gnb li a, #title .wrap .intro span a):hover {
-    background-color: white;
-    color: black;
   }
   
 }
