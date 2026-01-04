@@ -579,11 +579,11 @@ header div nav .rgnb a:nth-of-type(2) {
 
 #projects .wrap .list > li:nth-child(3) {
     background-color: rgba(255, 227, 161, 0.84);
-    grid-area: 2 / 1 / auto / span 2;
     margin-bottom: 60px;
-}
-#projects .wrap .list > li:nth-child(3) .sub .indent2{
-    margin-left: 0px;
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    padding-left: 275px;
+    padding-right: 276px;
 }
 #projects .wrap .list li h3 {
     grid-area: 1 / 2;
@@ -660,17 +660,11 @@ header div nav .rgnb a:nth-of-type(2) {
     display: none;
 }
 
-#projects .wrap .list li:nth-child(2) figure::after {
-    background-image: url("../img/pf2-phone.png");
-    bottom: -27px;
-}
-
 #projects .wrap .list li:nth-child(3) figure::after {
-    background-image: url("../img/pf1-phone.png");
-    bottom: -120px;
-    width: 65px;
-    height: 100%;
-    display: none;
+    background-image: url("../img/pf2-phone.png");
+    bottom: -65px;
+    right: -50px;
+    width: 105px;
 }
 
 #projects .wrap .list li .sub {
