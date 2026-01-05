@@ -1,8 +1,7 @@
 # 📁 Personal Portfolio Website
 
 ## 🔍 Overview
-A personal portfolio website built to showcase my end‑to‑end UI/UX design process, frontend development skills, and selected case studies.  
-Designed with a clean layout, smooth interactions, and a focus on clarity for recruiters and hiring managers.
+A personal portfolio website built to showcase my end‑to‑end UI/UX design process, frontend development skills, and selected case studies. Designed with a clean layout, smooth interactions, and a focus on clarity for recruiters and hiring managers.
 <img width="1860" height="868" alt="image" src="https://github.com/user-attachments/assets/f5ac1411-755d-4b6d-9c41-050988a1baf3" />
 
 ▶︎ **Live Site:** https://hyeminc0706.github.io/Portfolio_1214/  
