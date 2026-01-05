@@ -131,7 +131,7 @@
     font-size: 56px;
   }
   #title .wrap .self {
-    width: 46vw;
+    width: 60vw;
     padding-top: 14px;
     font-size: 37px;
   }
@@ -286,10 +286,12 @@
     display: none;
   }
   #projects .wrap .list li .sub li:nth-child(6) {
-    margin-top: 15px;
   }
   #projects .wrap .list li .sub li:nth-child(6) a {
     margin-right: 10px;
+    font-size: 14px;
+    padding: 6px !important;
+    line-height: 1;
   }
   .sub .indent1,
   .sub .indent2 {
