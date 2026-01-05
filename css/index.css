@@ -580,6 +580,12 @@ header div nav .rgnb a:nth-of-type(2) {
 .sub .indent2 {
     margin-left: 109px;
 }
+.grid:nth-child(3) .sub .indent1 {
+    text-indent: -84px;
+}
+.grid:nth-child(3) .sub .indent2 {
+    margin-left: 0px;
+}
 #projects .wrap .list li .sub li a {
     z-index: 99;
     transition: 0.5s;
