@@ -37,7 +37,7 @@ It highlights my strengths in UI/UX design, frontend development, and building p
 ### [HiteJinro]
 - 🔗 [GitHub Repo](https://github.com/hyeminc0706/HiteJinro)
 - 🌐 [Live Demo](https://hyeminc0706.github.io/HiteJinro/)
-- 📄 [Case Study]([https://little-gauge-2b1.notion.site/HiteJinro-Inspired-Project-Case-Study-emoji-2d82c743869e8083b469d5a19fb432f9](https://little-gauge-2b1.notion.site/HiteJinro-Case-Study-2d82c743869e8083b469d5a19fb432f9?pvs=143))
+- 📄 [Case Study](https://little-gauge-2b1.notion.site/HiteJinro-Case-Study-2d82c743869e8083b469d5a19fb432f9?pvs=143)
 
 ---
 
