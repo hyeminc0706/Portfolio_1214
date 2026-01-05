@@ -10,6 +10,18 @@ header, #title, #aboutme, #projects, #contact {
     background-color: whitesmoke;
 }
 
+/* Background video */
+#bg-video {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    transition: opacity 2s;
+}
+
 /* Header */
 header {
     top: 0px;
@@ -563,6 +575,7 @@ header div nav .rgnb a:nth-of-type(2) {
 }
 #projects .wrap .list li .sub li strong {
     width: 110px;
+    min-width: 110px;
     display: inline-block;
     color: rgb(60, 60, 60);
 }
@@ -577,14 +590,8 @@ header div nav .rgnb a:nth-of-type(2) {
     text-indent: -90px;
     margin-left: 84px;
 }
-.sub .indent2 {
+.sub .indent2,.sub .indent3 {
     margin-left: 109px;
-}
-.grid:nth-child(3) .sub .indent1 {
-    text-indent: -84px;
-}
-.grid:nth-child(3) .sub .indent2 {
-    margin-left: 0px;
 }
 #projects .wrap .list li .sub li a {
     z-index: 99;
