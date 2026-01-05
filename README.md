@@ -35,21 +35,21 @@ It highlights my strengths in UI/UX design, frontend development, and building p
 
 ## 📁 Projects
 
-### [HiteJinro Inspired Project](https://little-gauge-2b1.notion.site/HiteJinro-Inspired-Project-Case-Study-emoji-2d82c743869e8083b469d5a19fb432f9)
+### [HiteJinro]
 - 🔗 [GitHub Repo](https://github.com/hyeminc0706/Inspired_Project)
 - 🌐 [Live Demo](https://hyeminc0706.github.io/Inspired_Project/)
 - 📄 [Case Study](https://little-gauge-2b1.notion.site/HiteJinro-Inspired-Project-Case-Study-emoji-2d82c743869e8083b469d5a19fb432f9)
 
 ---
 
-### [KTCU Clone Layout Study](https://hyeminc0706.github.io/Clone_Project/)
+### [KTCU]
 - 🔗 [GitHub Repo](https://github.com/hyeminc0706/Clone_Project)
 - 🌐 [Live Demo](https://hyeminc0706.github.io/Clone_Project/)
 - 📄 [Case Study](https://hyeminc0706.github.io/Clone_Project/)
 
 ---
 
-### [ALTools UI Component Practice](https://little-gauge-2b1.notion.site/ALTools-UI-Animation-Component-Practice-2d82c743869e80d3ba1fc5f975b0a579?pvs=74)
+### [ALTools]
 - 🔗 [GitHub Repo](https://github.com/hyeminc0706/Practice_Project)
 - 🌐 [Live Demo](https://hyeminc0706.github.io/Practice_Project/)
 - 📄 [Case Study](https://little-gauge-2b1.notion.site/ALTools-UI-Animation-Component-Practice-2d82c743869e80d3ba1fc5f975b0a579?pvs=74)
