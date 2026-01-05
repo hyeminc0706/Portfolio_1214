@@ -10,18 +10,6 @@ header, #title, #aboutme, #projects, #contact {
     background-color: whitesmoke;
 }
 
-/* Background video */
-#bg-video {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    transition: opacity 2s;
-}
-
 /* Header */
 header {
     top: 0px;
