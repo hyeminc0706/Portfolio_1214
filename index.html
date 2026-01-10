@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mina's Portfolio - Home</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/index_new.css">
+    
+    <!-- SEO & Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hyeminc0706.github.io/Portfolio_1214/">
+    <meta property="og:title" content="Mina's Portfolio">
+    <meta property="og:description" content="Design Engineer & UX Engineer Portfolio — UI/UX, Frontend, Interaction Design">
+    <meta property="og:image" content="img/thumbnail.png">
+    <meta name="description" content="Portfolio of Mina — Design Engineer & UX Engineer specializing in UI/UX, frontend development, and interactive experiences.">
+    <meta name="keywords" content="Mina, Portfolio, Design Engineer, UX Engineer, UI/UX Designer, Frontend Developer, Web Design, Interaction Design">
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body x-data="{ 
+    theme: localStorage.getItem('theme') || 'light', 
+    fontStyle: localStorage.getItem('fontStyle') || 'sans' 
+}" 
+x-init="
+    $watch('theme', value => localStorage.setItem('theme', value));
+    $watch('fontStyle', value => localStorage.setItem('fontStyle', value));
+"
+:class="{ 'light-theme': theme === 'light', 'dark-theme': theme === 'dark', 'mono-font': fontStyle === 'mono' }">
+<script>
+    // Apply theme immediately before Alpine.js initializes
+    (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        const fontStyle = localStorage.getItem('fontStyle') || 'sans';
+        const body = document.body;
+        body.classList.remove('light-theme', 'dark-theme', 'mono-font');
+        body.classList.add(theme === 'dark' ? 'dark-theme' : 'light-theme');
+        if (fontStyle === 'mono') {
+            body.classList.add('mono-font');
+        }
+    })();
+</script>    
+    <div id="Page">
+        <!-- Animated Background -->
+        <div id="Background">
+            <canvas></canvas>
+        </div>
+        
+        <!-- Mask -->
+        <div class="mask" id="Mask">
+            <div class="mask_top"></div>
+            <div class="mask_bottom"></div>
+        </div>
+        
+        <!-- Frame Border -->
+        <div class="frame" id="Frame">
+            <div class="frame_line frame_line-left"></div>
+            <div class="frame_line frame_line-right"></div>
+            <div class="frame_line frame_line-top"></div>
+            <div class="frame_line frame_line-bottom"></div>
+        </div>
+        
+        <!-- Theme Toggle -->
+        <div class="theme" id="Theme">
+            <div class="theme_colors">
+                <div class="theme_btn" :class="{ 'is-selected': theme === 'light' }" @click="theme = 'light'">
+                    <div class="_box"></div>
+                    <div class="_text">Light</div>
+                </div>
+                <div class="theme_btn" :class="{ 'is-selected': theme === 'dark' }" @click="theme = 'dark'">
+                    <div class="_box"></div>
+                    <div class="_text">Dark</div>
+                </div>
+            </div>
+            <div class="theme_btn" :class="{ 'is-selected': fontStyle === 'mono' }" @click="fontStyle = fontStyle === 'mono' ? 'sans' : 'mono'">
+                <div class="_box"></div>
+                <div class="_text">Monospaced</div>
+            </div>
+        </div>
+        
+        <!-- Site Header -->
+        <header class="siteHeader" id="SiteHeader">
+            <h1 class="site-title">Mina</h1>
+            <p class="site-subtitle">Designer & Developer</p>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li class="active">
+                        <div class="_dot">●</div>
+                        <a href="index.html" class="_text">Home</a>
+                    </li>
+                    <li>
+                        <div class="_dot">●</div>
+                        <a href="about.html" class="_text">About</a>
+                    </li>
+                    <li>
+                        <div class="_dot">●</div>
+                        <a href="projects.html" class="_text">Projects</a>
+                    </li>
+                    <li>
+                        <div class="_dot">●</div>
+                        <a href="contact.html" class="_text">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!-- Copyright -->
+        <div id="Copyright">
+            <p>© Mina</p>
+        </div>
+        
+        <!-- Main Content -->
+        <main class="content" id="Content">
+            <div class="content_inner">
+                <section class="page">
+                    <div class="home-section">
+                        <div class="home_aboutme">
+                            <span>I design for clarity, empathy, and impact.</span>
+                            <span>With experience in health science, marketing, and frontend development,</span>
+                            <span>I explore the intersection of usability and expression—</span>
+                            <span>crafting digital experiences that are honest, accessible, and thoughtfully engineered.</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: false,
+            offset: 100,
+            easing: 'ease-in-out'
+        });
+        
+        // Wave Animation on Canvas
+        const canvas = document.querySelector('#Background canvas');
+        const ctx = canvas.getContext('2d');
+        let animationId;
+        
+        function resizeCanvas() {
+            const bg = document.getElementById('Background');
+            canvas.width = bg.offsetWidth;
+            canvas.height = bg.offsetHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Wave parameters
+        let wave1 = { y: 0, length: 0.01, amplitude: 100, frequency: 0.01 };
+        let wave2 = { y: 0, length: 0.015, amplitude: 80, frequency: 0.012 };
+        let wave3 = { y: 0, length: 0.008, amplitude: 120, frequency: 0.008 };
+        let increment1 = 0.005;
+        let increment2 = 0.007;
+        let increment3 = 0.003;
+        
+        function drawWave(wave, strokeStyle, lineWidth) {
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height / 2);
+            
+            for (let i = 0; i < canvas.width; i++) {
+                ctx.lineTo(
+                    i,
+                    canvas.height / 2 + Math.sin(i * wave.length + wave.y) * wave.amplitude
+                );
+            }
+            
+            ctx.strokeStyle = strokeStyle;
+            ctx.lineWidth = lineWidth;
+            ctx.stroke();
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Get current theme
+            const isDark = document.body.classList.contains('dark-theme');
+            
+            // Draw multiple waves with different colors based on theme
+            if (isDark) {
+                drawWave(wave1, 'rgba(255, 255, 255, 0.03)', 2);
+                drawWave(wave2, 'rgba(255, 255, 255, 0.02)', 3);
+                drawWave(wave3, 'rgba(255, 255, 255, 0.01)', 4);
+            } else {
+                drawWave(wave1, 'rgba(0, 0, 0, 0.03)', 2);
+                drawWave(wave2, 'rgba(0, 0, 0, 0.02)', 3);
+                drawWave(wave3, 'rgba(0, 0, 0, 0.01)', 4);
+            }
+            
+            wave1.y += increment1;
+            wave2.y += increment2;
+            wave3.y += increment3;
+            
+            animationId = requestAnimationFrame(animate);
+        }
+        
+        animate();
+        
+        // Theme persistence with localStorage
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('themeStore', {
+                theme: localStorage.getItem('theme') || 'light',
+                fontStyle: localStorage.getItem('fontStyle') || 'sans',
+                
+                setTheme(value) {
+                    this.theme = value;
+                    localStorage.setItem('theme', value);
+                },
+                
+                setFontStyle(value) {
+                    this.fontStyle = value;
+                    localStorage.setItem('fontStyle', value);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
