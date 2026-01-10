@@ -614,6 +614,11 @@ body.mono-font .project-title {
     opacity: 0.7;
 }
 
+contact-form textarea {
+        min-height: 100px;
+        height: 150px !important;
+}
+
 .contact-info p {
     font-size: 12px;
     font-weight: 400;
