@@ -558,14 +558,14 @@ body.mono-font .project-title {
 .contact-intro {
     font-size: 12px;
     font-weight: 400;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     max-width: 400px;
 }
 
@@ -630,7 +630,7 @@ body.mono-font .project-title {
 .social-links a {
     font-size: 12px;
     font-weight: 400;
-    text-decoration: none;
+    text-decoration: underline;
     transition: opacity 0.4s cubic-bezier(0.1, 0.4, 0.2, 1);
 }
 
@@ -649,8 +649,6 @@ body.mono-font .project-title {
 
 @media (max-width: 768px) {
     .siteHeader {
-        left: var(--pad);
-        top: var(--pad);
     }
 
     .site-title {
@@ -668,18 +666,28 @@ body.mono-font .project-title {
     .home-section,
     .aboutme-section,
     .contact-section {
-        position: relative;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        padding: calc(var(--pad) * 2 + 96px) var(--pad);
+        padding: 10vw;
     }
-
+     .home-section{
+        right: calc(var(--pad) * 0);
+        bottom: calc(var(--pad) * 2);
+    }
+    .contact-section {
+        padding-left: 18vw;
+    }
     .projects-list {
         padding: calc(var(--pad) * 2 + 96px) var(--pad);
     }
-
+    .project-image {
+        display: none;
+    }
     .project-title {
         font-size: 8vw;
+    }
+    .social-links{
+        margin-top: 0px;
+    }
+    .social-links a{
+
     }
 }
