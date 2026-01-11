@@ -614,11 +614,6 @@ body.mono-font .project-title {
     opacity: 0.7;
 }
 
-contact-form textarea {
-        min-height: 100px;
-        height: 150px !important;
-}
-
 .contact-info p {
     font-size: 12px;
     font-weight: 400;
@@ -652,6 +647,92 @@ contact-form textarea {
     }
 }
 
+/* Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    z-index: 11;
+    right: var(--pad);
+    top: var(--pad);
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-menu {
+    position: fixed;
+    top: calc(var(--pad) + 44px);
+    right: var(--pad);
+    height: auto;
+    background-color: rgb(31 30 30 / 95%);
+    flex-direction: column;
+    text-align: center;
+    border-radius: 5px;
+    z-index: 10;
+    display: none;
+}
+
+body.dark-theme .nav-menu {
+    background-color: rgba(40, 40, 40, 0.9);
+}
+
+.nav-menu.active {
+    display: flex;
+    gap: 0;
+}
+
+.nav-item {
+    width: 100%;
+    height: 50px;
+    line-height: 3;
+}
+
+.nav-item:first-child {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.nav-item:last-child {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.nav-item:hover {
+    background-color: rgba(213, 213, 213, 0.8);
+}
+
+body.dark-theme .nav-item:hover {
+    background-color: rgba(60, 60, 60, 0.8);
+}
+
+.nav-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #9b9999;
+    font-size: 12px;
+    font-weight: 400;
+}
+
 @media (max-width: 768px) {
     .siteHeader {
     }
@@ -661,7 +742,17 @@ contact-form textarea {
     }
 
     .main-nav {
-        margin-top: 30px;
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+        top: calc(var(--pad) * 2);  /* 10px 더 추가 */
+        right: calc(var(--pad) + 15px);
+    }
+
+    .nav-menu {
+        width: 32vw;
     }
 
     .theme {
@@ -673,12 +764,12 @@ contact-form textarea {
     .contact-section {
         padding: 10vw;
     }
+    .contact-section {
+        width: 392px;
+    }
      .home-section{
         right: calc(var(--pad) * 0);
         bottom: calc(var(--pad) * 2);
-    }
-    .contact-section {
-        padding-left: 18vw;
     }
     .projects-list {
         padding: calc(var(--pad) * 2 + 96px) var(--pad);
@@ -688,6 +779,10 @@ contact-form textarea {
     }
     .project-title {
         font-size: 8vw;
+    }
+    .contact-form textarea{
+        min-height: 50px;
+        height: 100px !important;
     }
     .social-links{
         margin-top: 0px;
