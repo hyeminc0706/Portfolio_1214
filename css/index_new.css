@@ -542,7 +542,6 @@ body.mono-font .project-title {
 /* Contact Section */
 .contact-section {
     position: absolute;
-    right: calc(var(--pad) * 2);
     bottom: calc(var(--pad) * 2);
     white-space: nowrap;
     color: var(--c-text);
@@ -707,13 +706,9 @@ body.dark-theme .nav-menu {
 }
 
 .nav-item:first-child {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
 }
 
 .nav-item:last-child {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
 }
 
 .nav-item:hover {
@@ -765,7 +760,7 @@ body.dark-theme .nav-item:hover {
         padding: 10vw;
     }
     .contact-section {
-        width: 392px;
+        width: 75vw;
     }
      .home-section{
         right: calc(var(--pad) * 0);
