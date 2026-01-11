@@ -543,7 +543,6 @@ body.mono-font .project-title {
 .contact-section {
     position: absolute;
     bottom: calc(var(--pad) * 2);
-    right: calc(var(--pad) * 2);
     white-space: nowrap;
     color: var(--c-text);
     width: 400px;
@@ -759,14 +758,12 @@ body.dark-theme .nav-item:hover {
     .aboutme-section,
     .contact-section {
         padding: 10vw;
-        left: 0;
     }
     .contact-section {
         width: 75vw;
     }
      .home-section{
         right: calc(var(--pad) * 0);
-        bottom: calc(var(--pad) * 2);
     }
     .projects-list {
         padding: calc(var(--pad) * 2 + 96px) var(--pad);
