@@ -81,7 +81,7 @@ ol, ul {
 
 /* Light Theme Background */
 body.light-theme {
-    --c-bg: hsl(0, 0%, 90%);
+    --c-bg: whitesmoke;
     --c-text: hsl(0, 0%, 10%);
 }
 
