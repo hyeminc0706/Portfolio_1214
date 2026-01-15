@@ -16,7 +16,7 @@ It highlights my strengths in UI/UX design, frontend development, and building p
 ---
 
 ## 🛠 Tech Stack
-- **HTML5**, **CSS3**, **JavaScript**
+- **HTML5**, **CSS3**, **JavaScript** **AOS**
 - **Alpine.js** — State management
 - **Canvas API** — Wave animations
 
