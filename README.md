@@ -1,7 +1,0 @@
-😄 I'm Mina Choi, passionate UIUX Designer based in CA, U.S.
-
-📫 Contact Info.
-    hyeminc0706@gmail.com
-
-💬Languages and Tool
-    HTML/CSS/JAVASCRIPT/SASS/PS/FIGMA/Google Suite etc.
