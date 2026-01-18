@@ -170,7 +170,7 @@
     flex-direction: column;
     width: 94vw;
     height: 100%;
-    padding: 40px 20px;
+    padding: 70px 25px;
     gap: 15px;
   }
   #aboutme .wrap h2 {
@@ -224,7 +224,7 @@
   #projects .wrap .list > li {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: auto 210px auto;
+    /* grid-template-rows: auto 210px auto; */
     width: calc(100vw - 75px);
     padding: 20px;
   }
@@ -247,7 +247,7 @@
     width: 65px;
   }
   #projects .wrap .list li:nth-child(3) figure img {
-    transform: translateX(0px) translateY(0px);
+    transform: translateX(0px) translateY(6px);
   }
   #projects .wrap .list li h3 {
     grid-column: 1;
@@ -265,8 +265,14 @@
     grid-row: 2;
     height: auto;
   }
+  #projects .wrap .list li figure img{
+    margin-bottom: 0px;
+  }
+  #projects .wrap .list li:nth-child(1) figure{
+    padding: 15px;
+  }
   #projects .wrap .list li:nth-child(2) figure img{
-    transform: translateX(0px) translateY(12px);
+    transform: translateX(0px) translateY(20px);
   }
   #projects .wrap .list li .sub {
     grid-column: 1;
