@@ -161,7 +161,7 @@
   /* About Me Section */
   #aboutme {
     width: 100%;
-    height: 470px;
+    height: 100%;
     padding-top: 10vh;
     padding-bottom: 10vh;
   }
@@ -170,7 +170,8 @@
     flex-direction: column;
     width: 94vw;
     height: 100%;
-    padding: 80px 20px 40px 20px;
+    padding: 40px 20px;
+    gap: 15px;
   }
   #aboutme .wrap h2 {
     font-size: 23px;
@@ -223,7 +224,7 @@
   #projects .wrap .list > li {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: auto 210px auto;
     width: calc(100vw - 75px);
     padding: 20px;
   }
@@ -241,11 +242,12 @@
     bottom: -8px;
   }
   #projects .wrap .list li:nth-child(3) figure::after {
-    bottom: -45px;
+    bottom: -16px;
     right: -9px;
+    width: 65px;
   }
   #projects .wrap .list li:nth-child(3) figure img {
-    transform: translateX(-1px) translateY(21px);
+    transform: translateX(0px) translateY(0px);
   }
   #projects .wrap .list li h3 {
     grid-column: 1;
@@ -263,6 +265,9 @@
     grid-row: 2;
     height: auto;
   }
+  #projects .wrap .list li:nth-child(2) figure img{
+    transform: translateX(0px) translateY(12px);
+  }
   #projects .wrap .list li .sub {
     grid-column: 1;
     grid-row: 3;
@@ -278,25 +283,37 @@
     background-color: white;
     color: black;
   }
+  #projects .wrap .list li .sub li a::before{
+    width: 10px;
+    height: 10px;
+    margin-left: 0px;
+  }
   #projects .wrap .list li .sub li strong {
     width: auto;
     padding-right: 5px;
+  }
+  #projects .wrap .list li .sub > li:nth-of-type(-n+3) .bold{
+    display: flex;
   }
   #projects .wrap .list li .sub li:nth-child(5) {
     display: none;
   }
   #projects .wrap .list li .sub li:nth-child(6) {
+    gap: 3vw;
   }
   #projects .wrap .list li .sub li:nth-child(6) a {
-    margin-right: 10px;
+    width: fit-content;
     font-size: 14px;
-    padding: 6px !important;
-    line-height: 1;
+    margin-right: 0px;
+    padding: 5px 8px;
   }
   .sub .indent1,
   .sub .indent2 {
     text-indent: 0;
     margin-left: 0;
+  }
+  .sub .indent2, .sub .indent3{
+    margin-left: 0px;
   }
   #projects .wrap .list li .sub .work {
     width: 0;
