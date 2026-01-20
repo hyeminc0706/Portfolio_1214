@@ -3,470 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mina's Portfolio</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/responsive.css">  
-    <!--상세 페이지 연결--> 
-    <link rel="stylesheet" href="css/aboutme.css">
-    <!-- AOS CSS -->
-    <link rel="stylesheet" href="aos/aos.css">
-	<!-- SEO & Open Graph -->
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://hyeminc0706.github.io/Portfolio_1214/">
-	<meta property="og:title" content="Mina's Portfolio">
-	<meta property="og:description" content="Design Engineer & UX Engineer Portfolio — UI/UX, Frontend, Interaction Design">
-	<meta property="og:image" content="img/thumbnail.png">
-	<meta name="description" content="Portfolio of Mina — Design Engineer & UX Engineer specializing in UI/UX, frontend development, and interactive experiences.">
-	<meta name="keywords" content="Mina, Portfolio, Design Engineer, UX Engineer, UI/UX Designer, Frontend Developer, Web Design, Interaction Design">
-    <!-- 구글폰트 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KRwght@100..900&display=swap" rel="stylesheet">
-	<!-- 슬릭 CSS -->
-	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-	
-	<!-- jQuery (최신 안정 버전, https) -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	
-	<!-- slick JS (jQuery 아래에 있어야 함) -->
-	<script src="slick/slick.min.js"></script>
-	
-	<!-- 너의 스크립트 시작 -->
-	<script type="text/javascript">
-
-        $(document).ready(function(){
-            $('.introAni').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 1000,
-                dots: false,  
-                infinite: true,
-                speed: 800,                
-                arrows:false,
-                fade:false,
-                vertical:true,                
-                rtl:2
-            });
-        }); 
-    </script>   
-    <script>
-        //스크롤 이미지 애니메이션
-        $(document).ready(function() {
-            $(window).scroll( function(){                    
-                $("body>*").each( function(i){                    
-                    var bottom_of_element = $(this).offset().top + $(this).outerHeight()/7;
-                    var bottom_of_window = $(window).scrollTop() + $(window).height();                    
-                    if( bottom_of_window > bottom_of_element ){
-                        $(this).animate({'opacity':'1'},700);
-                    }                    
-                }); 
-            });
-        });    
-        //대메뉴 클릭시, 스크롤 바로가기 기능
-        $(document).ready(function(){            
-            $("header .wrap .gnb li").click(function(){                
-                var n = $(this).index();
-
-                // 클릭할 때마다 최신 위치 계산
-                var c = [
-                $("#aboutme").offset().top,            
-                $("#projects").offset().top,            
-                $("#contact").offset().top
-                ];
-
-                $("html, body").animate(
-                { scrollTop: c[n] - 10 }, 
-                1500
-                );
-
-                return false;
-            });            
-            // 하단부분보이면 위로가기 버튼 보여지게 스크롤이벤트
-			var ft=$("footer").offset().top - $(window).height();			
-			$(window).scroll(function(){
-				if($(window).scrollTop()>ft){
-					$("footer a").fadeIn();
-				}else{
-					$("footer a").fadeOut();
-				}				
-			});
-        });
-        // .intron span a 클릭시 해당 스크롤 이동
-        $(document).ready(function(){    
-            var c=[       
-            $("#contact").offset().top,     
-            $("#projects").offset().top            
-            ];      
-            var n; 
-            $("#title .wrap .intro span a").click(function(){               
-                n = $(this).index();
-                $("html,body").animate({scrollTop:c[n]},1500);  
-                    return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨...
-            }); 
-        });
-        $(document).ready(function(){ 
-            $("footer .top").click(function(){
-                $("html, body").animate({scrollTop:0},1000);
-                return false;
-            });
-        
-        });
-        // (반응형).nav-item 클릭시 스크롤 이동 
-        $(document).ready(function(){    
-
-            var c = [
-                $("#aboutme").offset().top,
-                $("#projects").offset().top,
-                $("#contact").offset().top
-            ];
-
-            $("li.nav-item").click(function(e){               
-                e.preventDefault(); // a 태그 기본 동작 방지
-
-                var n = $(this).index();
-                $("html,body").animate({scrollTop:c[n]},1500);
-            }); 
-
-            $(".nav-link").click(function(){
-                $(".nav-menu").removeClass("active");
-                $(".hamburger").removeClass("active");
-            });
-        });
-
-        $(document).ready(function(){ 
-            // burgerbutton 클릭시 버거메뉴 열기
-            $(".hamburger").click(function(){
-                $(".nav-menu").toggleClass("active");
-                $(".hamburger").toggleClass("active");
-            });
-
-            // scrolldown하면 버거메뉴 접기
-            let lastScrollTop = 0;
-
-            $(window).on("scroll", function() {
-                let currentScroll = $(this).scrollTop();
-
-                if (currentScroll > lastScrollTop) {
-                $(".nav-menu").removeClass("active");
-                $(".hamburger").removeClass("active");
-                }
-
-                lastScrollTop = currentScroll;
-            });
-        });
-
-    </script>     
+    <title>Mina's Portfolio - Loading</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="css/landing.css">
 </head>
-<body>    
-    <div class="cursor"></div>
-    <div class="cursor2"></div>
-    <!--마우스 효과-->
-    <script>
-        var cursor = document.querySelector(".cursor");
-        var cursor2 = document.querySelector(".cursor2");
-        document.addEventListener("mousemove",function(e){
-            cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX
-            + "px; top: " + e.clientY + "px;";
-        });
-    </script> 
-    <!-- 상단영역 -->
-    <header>
-        <div class="wrap">
-            <nav class="flex">
-                <!-- 로고 -->
-                <h1><a href="index.html" class="logo block">Logo</a></h1>
-
-                <!-- PC용 메뉴 -->
-                <ul class="gnb flex">
-                    <li><a href="about.html" class="block h2">About</a></li>
-                    <li><a href="" class="block h2">Projects</a></li>
-                    <li><a href="" class="block h2">Contact</a></li>
-                </ul>
-
-                <!-- SNS 아이콘 -->
-                <div class="rgnb flex">
-                    <a href="https://www.instagram.com/minachoia" target="_blank" class="social-icon w-inline-block">
-                    <img src="https://assets-global.website-files.com/606694bd40508c617a3f20fb/60676cf28d2cabcd51294d2d_linkedin.svg" width="19">
-                    </a>
-                    <a href="https://forms.gle/QfzvRucYFk6DGUGo9" target="_blank" class="social-icon w-inline-block">
-                    <img src="https://assets-global.website-files.com/606694bd40508c617a3f20fb/6067ae0616f374c4dd05508f_noun_Mail_52963.svg" width="40">
-                    </a>
-                </div>
-
-                <!-- 모바일 버거 메뉴 -->
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-
-                <!-- 모바일 메뉴 -->
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Projects</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
+<body>
+    <div id="terminal">
+        <p class="audio-prompt">Click anywhere to enable sound</p>
+        <div id="boot-screen" class="screen active">
+            <pre id="boot-text"></pre>
         </div>
-    </header>
-
-    <!-- 타이틀영역 -->
-    <div id="title">
-        <div class="wrap">
-            <div class="intro">            
-                <ul class="introAni">
-                    <h2 class="one">Ready to Turn</h2>
-                    <h2 class="two">Your Vision</h2>
-                    <h2 class="three">into Reality</h2>
-                </ul>
-                <div>         
-                    <p class="self">I Design & Code</p>
-                    <p>   
-                    background in UI/UX design, Digital Marketing, and Brand Operations.
-                </div>
-                <span>
-                    <a href="">Let's talk</a>
-                    <a href="">Project</a>        
-                </span>
-            </div>  
-            <div class="introimg">
-                <figure>                    
-                    <figcaption>introimg</figcaption>
-                </figure>
-            </div>   
+        
+        <div id="start-screen" class="screen">
+            <div class="box">
+                <pre id="start-text"></pre>
+                <button id="start-btn" class="start-button">START</button>
+            </div>
         </div>
-        <div class="updatetime">
-            <p>Last updated</p><p>12 - 14 - 2025</p>
+
+        <div id="final-screen" class="">
+            <model-viewer 
+                id="desk-model"
+                src="img/computer_desk.glb" 
+                alt="Computer Desk 3D Model"
+                auto-rotate
+                camera-controls
+                shadow-intensity="1"
+                exposure="1"
+                camera-orbit="0deg 75deg 5m"
+                field-of-view="45deg"
+                interaction-prompt="none"
+                style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
+            </model-viewer>
+            <iframe id="main-preview" src="main.html?preview=true"></iframe>
+            <p class="click-text">Click anywhere to begin</p>
         </div>
     </div>
-    
-    <!-- 메인 -->
-    <!-- About Me  -->
-    <section id="aboutme">
-        <div class="wrap paddingT50 paddingB50 grid">
-            <h4>Professional Summary</h4>
-            <ul class="intro">
-                <li>                    
-                    <p class="sm14">
-                        Designer & Coder with hands-on experience in UI/UX design, digital marketing, and brand operations. 
-                        <br>
-                        Earned a UI/UX Designer Certification after completing a 520‑hour on‑site bootcamp with 99% attendance at EJEN Academy. Skilled in building structured, desktop‑focused web interfaces using HTML5, CSS3, JavaScript, jQuery, and Bootstrap. Experienced with Git/GitHub, debugging, and QA workflows to ensure clean and consistent performance. Proficient in Figma, Photoshop, and Illustrator, enabling seamless integration of design and development.
-                        <br>
-                        Managed multi‑channel marketing campaigns, optimized performance using audience insights, and operated six Airbnb listings generating over $100K annually. Strong in client communication, cross‑functional collaboration, and data‑driven decision making.
-                    </p>
-                </li>               
-            </ul>
-            <ul class="info">
-                <li><strong></strong>hyeminc0706@gmail.com</li>
-                <li><strong></strong>+1 703-336-2125</li>
-                <li><strong></strong>https://github.com/hyeminc0706</li>
-            </ul>
-        </div>
-    </section>
-    <!-- Project  -->
-    <section id="projects">
-        <div class="wrap paddingB50 flex">
-            <h4>Latest Projects</h4>
-            <p class="sm14">
-                "The following works are web design and frontend development projects I created during my training and practice. 
-                Some are clone projects inspired by existing company websites, rebuilt from scratch to practice modern frontend techniques and responsive design."
-            </p>            
-            <ul class="list">
-                <!-- Hite Jinro Project -->
-                <li class="grid" data-aos="fade-right" data-aos-duration="1000">
-                    <h3 class="h3">HiteJinro</h3>
-                    <figure>
-                        <img src="img/pf1.png" alt="HiteJinro Website">
-                        <figcaption>HiteJinro Website</figcaption>
-                    </figure>
-                    <ul class="sub">    
-                        <li>
-                            <strong class="bold">
-                                Overview
-                            </strong>
-                            <span class="indent1">design‑inspired rebuild created to practice front‑end</span>
-                            <span class="indent2">
-                                layout and interactive UI elements.
-                            </span> 
-                        </li>
-                        <li><strong class="bold">Role</strong>UI/UX Design and Frontend Dev</li>
-                        <li><strong class="bold">Tech Stack</strong>HTML5, CSS3, JavaScript, jQuery, Slick Slider</li>
-                        <li class="work">
-                            <strong class="bold">Process</strong>
-                            <ul>
-                                <li>Analyzed the original website’s structure and visual direction</li>
-                                <li>Created wireframes and design mockups</li>
-                                <li>Developed the desktop layout using HTML/CSS</li>
-                                <li>Added interactive elements and sliders with jQuery</li>
-                                <li>Performed QA and debugging</li>
-                            </ul>
-                        </li>
-                        <li><strong class="bold">Contribution</strong>100% (UI/UX Design, Frontend Dev, QA & Debugging)</li>
-                        <li class="flex">
-                            <a href="https://github.com/hyeminc0706/HiteJinro" class="block" target="_blank">Github Repo</a>
-                            <a href="https://hyeminc0706.github.io/HiteJinro/" class="block" target="_blank">Live Demo</a>
-                            <a href="https://little-gauge-2b1.notion.site/HiteJinro-Inspired-Project-Case-Study-emoji-2d82c743869e8083b469d5a19fb432f9" class="block" target="_blank">Case Study</a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- Credit Union Project -->
-                <li class="grid" data-aos="fade-left" data-aos-duration="1000">
-                    <h3 class="h3">Korea Teachers' Credit Union</h3>
-                    <figure>
-                        <img src="img/pf2.png" alt="Credit Union Website">
-                        <figcaption>Credit Union Website</figcaption>
-                    </figure>
-                    <ul class="sub">
-                        <li>
-                            <strong class="bold">
-                            Overview
-                            </strong>
-                            <span class="indent1">
-                                 A desktop‑focused clone project built to study layout</span>
-                            <span class="indent2">
-                                structure and UI interactions.
-                            </span>
-                        </li>
-                        <li><strong class="bold">Role</strong>UI/UX Design, Frontend Development</li>
-                        <li><strong class="bold">Tech Stack</strong>HTML5, CSS3, JavaScript, jQuery, Bootstrap</li>
-                        <li class="work">
-                            <strong class="bold">Process</strong>
-                            <ul>
-                                <li>Analyzed the original site’s layout and user flow</li>
-                                <li>Designed wireframes and recreated the visual structure</li>
-                                <li>Built the full desktop layout using HTML/CSS</li>
-                                <li>Added interactive elements with JavaScript and jQuery</li>
-                                <li>Conducted testing and refinement for consistent behavior</li>
-                            </ul>
-                        </li>
-                        <li><strong class="bold">Contribution</strong>100% (UI/UX Design, Frontend Dev, QA & Debugging)</li>
-                        <li class="flex">
-                            <a href="https://github.com/hyeminc0706/KTCU" class="block" target="_blank">Github Repo</a>
-                            <a href="https://hyeminc0706.github.io/KTCU/" class="block" target="_blank">Live Demo</a>
-                            <a href="https://little-gauge-2b1.notion.site/KTCU-Case-Study-2d82c743869e80038e3ccc11730ebbab" class="block" target="_blank">Case Study</a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- Altools Project -->
-                <li class="grid" data-aos="fade-up" data-aos-duration="1000">
-                    <h3 class="h3">Altools </h3>
-                    <figure>
-                        <img src="img/pf3.png" alt="Altools Website">
-                        <figcaption>Altools Website</figcaption>
-                    </figure>
-                    <ul class="sub">
-                        <li>
-                            <strong class="bold">
-                                Overview
-                            </strong>
-                            <span class="indent1">
-                                frontend practice project implementing responsive web design and interactive
-                            </span>
-                            <span class="indent2">
-                                 UI components. Features multiple Slick Slider carousels, custom dropdown
-                            </span>
-                            <span class="indent3">
-                                 menus, and responsive layouts.
-                            </span>
-                        </li>
-                        <li><strong class="bold">Role</strong>UI/UX Design, Frontend Development, Responsive Implementation</li>
-                        <li><strong class="bold">Tech Stack</strong>HTML5, CSS3, JavaScript, jQuery, Slick Slider</li>
-                        <li class="work">
-                            <strong class="bold">Process</strong>
-                            <ul>
-                                <li>Built responsive layouts using HTML/CSS with custom breakpoints
-                                    Developed accessible dropdown menu with keyboard navigation
-                                    Integrated Slick Slider with custom controls (play/pause, prev/next, slide
-                                    index) Implemented conditional slider initialization for mobile optimization
-                                    Conducted cross-browser testing and accessibility improvements
-                                </li>
-                            </ul>
-                        </li>
-                        <li><strong class="bold">Contribution</strong>100% (UI/UX Design, Frontend Dev, QA & Debugging)</li>
-                        <li class="flex">
-                             <a href="https://github.com/hyeminc0706/Altools" class="block" target="_blank">Github Repo</a>
-                            <a href="https://hyeminc0706.github.io/Altools/" class="block" target="_blank">Live Demo</a>
-                            <a href="https://little-gauge-2b1.notion.site/ALTools-UI-Animation-Component-Practice-2d82c743869e80d3ba1fc5f975b0a579?pvs=74" class="block" target="_blank">Case Study</a>
-                        </li>
-                    </ul>
-                </li>
 
-            </ul>                           
-        </div>
-    </section>
-     <!-- contact -->
-    <section id="contact">        
-        <div class="container paddingT50 paddingB50 flex">
-            <h4 class="form borderT">Contact</h4>
-            <p>Let's build something great!</p>
+    <!-- Audio Elements -->
+    <audio id="typing-sound" loop>
+        <source src="img/typing.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="tv-sound" loop>
+        <source src="img/oldfilm.png" type="image/png">
+    </audio>
+    <audio id="click-sound">
+        <source src="img/click.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="office-sound" loop>
+        <source src="img/busyoffice.flac" type="audio/flac">
+    </audio>
 
-            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-            <!-- Web3Forms Access Key -->
-            <input type="hidden" name="access_key" value="6f06663e-1ad9-4078-b679-90cc1be89fd0" />
-
-            <!-- Name -->
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required />
-
-            <!-- Email -->
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Your email" required />
-
-            <!-- Message -->
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Example text" style="height:200px" required></textarea>
-
-            <!-- Submit -->
-            <div class="send">
-                <input type="submit" value="Submit">
-            </div>
-            </form>        
-        </div>           
-    </section>
-   
-    <!-- 하단영역 -->
-    <footer>
-        <a href="" class="top">▲</a>
-        <div class="grid">
-            <h1><a href="index.html" class="logo block" target="_blank">Logo</a></h1>          
-            <ul class="sns flex">
-                <li><a href="https://www.instagram.com/minachoia" target="_blank" class="icon insta"></a></li>
-                <li><a href="https://www.linkedin.com/in/minachoia" target="_blank" class="icon linkedin"></a></li>
-                <li><a href="https://github.com/hyeminc0706" target="_blank" class="icon github"></a></li>
-                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfax6qevPLmIhutBemJ5H5LokRhicIThQe51mQcjThCaJt8YA/viewform?usp=sf_link" target="_blank" class="icon email"></a></li>
-            </ul>
-            <ul class="fnb flex">
-                <p>Collaboration? I'm</p>
-                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfax6qevPLmIhutBemJ5H5LokRhicIThQe51mQcjThCaJt8YA/viewform?usp=sf_link" target="_blank" class="block h2">here!</a></li>
-            </ul>
-            <ul class="email"><li>hyeminc0706@gmail.com</li></ul>
-            <ul class="phone"><li>+1 703-336-2125</li></ul>
-            <p class="sm14">Website designed and developed by Hyemin Choi ©2024  All rights reserved.</p>
-        </div>
-    </footer>
-    <div class="cursor"></div>
-    <div class="cursor2"></div>
-    
-    <!-- AOS JS -->
-    <script src="aos/aos.js"></script>
     <script>
-        AOS.init({
-            once: false,
-            offset: 100,
-            duration: 1000
+        // Boot screen text (array of lines for line-by-line typing)
+        const bootLines = [
+            "Mina,              Released: 04/12/2024",
+            "Portfolio          MINABIOS (C)2000 Mina Creative Inc.,",
+            "",
+            "",
+            "MS V1 2000-2026 Special Edition",
+            "",
+            "MC System(tm) v1.0",
+            "Checking RAM : 14000 OK",
+            "",
+            "",
+            "LOADING RESOURCES (14/19)",
+            "",
+            "   Loaded KeyboardKeydown0        ... 44%",
+            "   Loaded KeyboardKeydown1        ... 53%",
+            "   Loaded KeyboardKeydown2        ... 67%",
+            "   Loaded cinematicView                 ... 81%",
+            "   Loaded CSType                  ... 88%",
+            "   Loaded filmUp5        ... 91%",
+            "   Loaded startDown                 ... 97%",
+            "",
+            "",
+            "",
+            "",
+            "Press ESC to enter SETUP , DEL to skip memory test",
+            "01/17/2026"
+        ];
+
+        // Start screen text
+        const startText = `Welcome to Mina Portfolio 2026
+Click start to begin _`;
+
+        let currentLine = 0;
+        let charIndex = 0;
+        let startIndex = 0;
+        let typingSpeed = 5; // Character typing speed
+        let lineDelay = 50; // Delay between lines
+
+        const bootScreen = document.getElementById('boot-screen');
+        const startScreen = document.getElementById('start-screen');
+        const finalScreen = document.getElementById('final-screen');
+        const bootTextEl = document.getElementById('boot-text');
+        const startTextEl = document.getElementById('start-text');
+        const startBtn = document.getElementById('start-btn');
+        const deskModel = document.getElementById('desk-model');
+        const clickText = document.querySelector('.click-text');
+        const audioPrompt = document.querySelector('.audio-prompt');
+        
+        const typingSound = document.getElementById('typing-sound');
+        const tvSound = document.getElementById('tv-sound');
+        const clickSound = document.getElementById('click-sound');
+        const officeSound = document.getElementById('office-sound');
+
+        // Set volume levels
+        typingSound.volume = 0.3;
+        tvSound.volume = 0.3;
+        clickSound.volume = 1.0;
+        officeSound.volume = 0.3;
+        clickSound.volume = 1.0;
+
+        // Show click text after model loads
+        if (deskModel) {
+            deskModel.addEventListener('load', () => {
+                setTimeout(() => {
+                    clickText.classList.add('show');
+                }, 1000);
+            });
+        }
+
+        function typeBootText() {
+            if (currentLine < bootLines.length) {
+                const line = bootLines[currentLine];
+                
+                if (charIndex < line.length) {
+                    bootTextEl.textContent += line.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeBootText, typingSpeed);
+                } else {
+                    // Line completed, move to next line
+                    bootTextEl.textContent += '\n';
+                    currentLine++;
+                    charIndex = 0;
+                    setTimeout(typeBootText, lineDelay);
+                }
+            } else {
+                // All lines typed, move to start screen
+                typingSound.pause();
+                typingSound.currentTime = 0;
+                
+                setTimeout(() => {
+                    bootScreen.classList.remove('active');
+                    startScreen.classList.add('active');
+                    
+                    // Start typing sound again for start text
+                    typingSound.currentTime = 0;
+                    typingSound.play().catch(() => {
+                        console.log('Audio playback prevented');
+                    });
+                    typeStartText();
+                }, 300);
+            }
+        }
+
+        function typeStartText() {
+            if (startIndex < startText.length) {
+                startTextEl.textContent += startText.charAt(startIndex);
+                startIndex++;
+                setTimeout(typeStartText, 45);
+            } else {
+                // Stop typing sound when start text is done
+                typingSound.pause();
+                typingSound.currentTime = 0;
+                
+                setTimeout(() => {
+                    startBtn.classList.add('show');
+                }, 500);
+            }
+        }
+
+        startBtn.addEventListener('click', () => {
+            clickSound.play().catch(() => {});
+            
+            startScreen.classList.remove('active');
+            finalScreen.classList.add('active');
+            
+            // Hide audio prompt when entering final screen
+            if (audioPrompt) {
+                audioPrompt.style.display = 'none';
+            }
+            
+            // Stop typing sound and start office sound
+            typingSound.pause();
+            typingSound.currentTime = 0;
+            
+            officeSound.play().catch(() => {
+                console.log('Office sound playback prevented');
+            });
+        });
+
+        // Final screen - click anywhere to zoom into monitor and reveal main page
+        finalScreen.addEventListener('click', () => {
+            if (finalScreen.classList.contains('zooming')) return; // Prevent multiple clicks
+            
+            clickSound.play();
+            finalScreen.classList.add('zooming');
+            
+            // Stop office sound
+            officeSound.pause();
+            officeSound.currentTime = 0;
+            
+            // Zoom camera into the monitor
+            if (deskModel) {
+                deskModel.cameraOrbit = '0deg 75deg 0.5m'; // Zoom closer to monitor
+                deskModel.fieldOfView = '20deg'; // Narrow field of view for zoom effect
+            }
+            
+            // Fade in the iframe
+            const mainPreview = document.getElementById('main-preview');
+            setTimeout(() => {
+                mainPreview.style.opacity = '1';
+                mainPreview.style.pointerEvents = 'auto';
+            }, 500);
+            
+            // Navigate to main page
+            sessionStorage.setItem('fromLanding', 'true');
+            sessionStorage.setItem('playAudio', 'true'); // Flag to play audio
+            setTimeout(() => {
+                window.location.href = 'main.html';
+            }, 2000);
+        });
+
+        let audioEnabled = false;
+        
+        // Enable audio on first click
+        document.addEventListener('click', () => {
+            if (!audioEnabled) {
+                audioEnabled = true;
+                typingSound.play().catch(() => {});
+                // Hide audio prompt after click
+                if (audioPrompt) {
+                    audioPrompt.style.opacity = '0';
+                    setTimeout(() => {
+                        audioPrompt.style.display = 'none';
+                    }, 500);
+                }
+            }
+        }, { once: true });
+
+        window.addEventListener('load', () => {
+            // Start animation immediately
+            setTimeout(() => {
+                typeBootText();
+                // Try to play typing sound (may be blocked by browser)
+                typingSound.play().then(() => {
+                    audioEnabled = true;
+                }).catch(() => {
+                    console.log('Audio autoplay blocked - click anywhere to enable');
+                });
+            }, 200);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && startBtn.classList.contains('show')) {
+                startBtn.click();
+            }
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
