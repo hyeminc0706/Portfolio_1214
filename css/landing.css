@@ -1,0 +1,278 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    line-height: 1.4;
+    overflow: hidden;
+    position: relative;
+}
+
+#terminal {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    max-width: 900px;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* Boot Screen */
+#boot-screen {
+    text-align: left;
+}
+
+#boot-text {
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.8;
+    text-shadow: 0 0 5px #fff;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+/* Start Screen */
+#start-screen {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#start-screen.active {
+    display: flex;
+}
+
+.box {
+    border: 2px solid #fff;
+    padding: 25px 60px;
+    text-align: center;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+#start-text {
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    line-height: 1.5;
+    min-height: 100px;
+}
+
+.start-button {
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+}
+
+
+.start-button.show {
+    opacity: 1;
+}
+
+.start-button:hover {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+/* Final Screen */
+#final-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #000;
+}
+
+#final-screen.active {
+    display: flex;
+}
+
+#desk-model {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: transparent;
+    transition: none;
+}
+
+model-viewer {
+    --progress-bar-height: 0;
+    --progress-bar-color: transparent;
+}
+
+model-viewer::part(default-progress-bar) {
+    display: none;
+}
+
+#final-screen.zoom-in #main-preview {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#main-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    z-index: 15;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s ease-in-out;
+}
+
+#final-screen.zooming .click-text {
+    opacity: 0 !important;
+}
+
+.click-text {
+    font-size: 15px;
+    color: #fff;
+    position: fixed;
+    bottom: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
+}
+
+.click-text.show {
+    opacity: 1;
+    visibility: visible;
+    animation: blink 2s ease-in-out infinite;
+    transition: opacity 0.5s ease-in-out, visibility 0s 0s;
+}
+
+#final-screen.zoom-in .click-text {
+    opacity: 0;
+}
+
+/* Audio Prompt */
+.audio-prompt {
+    font-size: 15px;
+    color: #fff;
+    position: fixed;
+    bottom: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    opacity: 1;
+    visibility: visible;
+    animation: blink 2s ease-in-out infinite;
+    transition: opacity 0.5s ease-in-out;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; transform: translateX(-50%); }
+    50% { opacity: 0.7; transform: translateX(-50%); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    body {
+        font-size: 12px;
+    }
+    
+    #boot-text {
+        font-size: 11px;
+    }
+    
+    .box {
+        padding: 30px 40px;
+    }
+    
+    #start-text {
+        font-size: 14px;
+    }
+    
+    .start-button {
+        font-size: 14px;
+        padding: 10px 30px;
+    }
+
+    .click-text {
+        font-size: 14px;
+    }
+
+    .audio-prompt {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 11px;
+    }
+    
+    #boot-text {
+        font-size: 10px;
+        padding: 10vw 11vw;
+    }
+    
+    .box {
+        padding: 20px 30px;
+    }
+    
+    #start-text {
+        font-size: 12px;
+        min-height: 60px;
+        margin-bottom: 20px;
+    }
+    
+    .start-button {
+        font-size: 12px;
+        padding: 8px 25px;
+    }
+
+    .click-text {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+    
+    .audio-prompt {
+        font-size: 12px;
+    }
+    .projects-list {
+        padding: 10vw;
+    }
+}
+
