@@ -2,7 +2,8 @@
 
 ## 🔍 Overview
 A personal portfolio website built to showcase my end‑to‑end UI/UX design process, frontend development skills, and selected case studies. Designed with a clean layout, smooth interactions, and a focus on clarity for recruiters and hiring managers.
-<img width="1318" height="787" alt="Screenshot 2026-01-19 at 11 24 49 PM" src="https://github.com/user-attachments/assets/36acee91-a6e4-4612-97d2-d7eecafd0068" />
+<img width="1860" height="868" alt="image" src="https://github.com/user-attachments/assets/f5ac1411-755d-4b6d-9c41-050988a1baf3" />
+
 ▶︎ **Live Site:** https://hyeminc0706.github.io/Portfolio_1214/  
 ▶︎ **GitHub Projects:** Linked within each case study
 
@@ -15,7 +16,7 @@ It highlights my strengths in UI/UX design, frontend development, and building p
 ---
 
 ## 🛠 Tech Stack
-- **HTML5**, **CSS3**, **JavaScript** **AOS**
+- **HTML5**, **CSS3**, **JavaScript**
 - **Alpine.js** — State management
 - **Canvas API** — Wave animations
 
