@@ -43,7 +43,7 @@
     <script src="js/cursor-particles.js"></script>
 </head>
 <body x-data="{ 
-    theme: localStorage.getItem('theme') || 'light', 
+    theme: localStorage.getItem('theme') || 'dark', 
     fontStyle: localStorage.getItem('fontStyle') || 'sans' 
 }" 
 x-init="
@@ -54,7 +54,7 @@ x-init="
 <script>
     // Apply theme immediately before Alpine.js initializes
     (function() {
-        const theme = localStorage.getItem('theme') || 'light';
+        const theme = localStorage.getItem('theme') || 'dark';
         const fontStyle = localStorage.getItem('fontStyle') || 'sans';
         const body = document.body;
         body.classList.remove('light-theme', 'dark-theme', 'mono-font');
