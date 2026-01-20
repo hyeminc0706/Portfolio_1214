@@ -311,8 +311,17 @@ body.mono-font .site-title {
 }
 
 @media not all and (min-width: 640px) {
-    #Copyright {
+    .project-image{
         display: none;
+    }
+    .aboutme-section{
+        padding: 10vh 0vw 0vh 10vw;
+    }
+    .contact-section{
+        padding-left: 20vw;
+    }
+    .projects-list{
+        position: absolute;
     }
 }
 
@@ -515,7 +524,6 @@ body.mono-font .project-title {
 
 }
 .project-image {
-    display: block;
     width: 4%;
     margin: 0 0 15px auto;
     mix-blend-mode: normal;
