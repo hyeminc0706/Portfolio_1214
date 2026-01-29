@@ -430,8 +430,8 @@ body.mono-font .site-title {
     position: absolute;
     right: calc(var(--pad) * 2);
     bottom: calc(var(--pad) * 2);
-    white-space: nowrap;
     color: var(--c-text);
+    max-width: 40vw;
 }
 
 .section-title {
@@ -450,8 +450,7 @@ body.mono-font .site-title {
     font-size: 12px;
     line-height: 1.5;
     font-weight: 200;
-    margin-bottom: 30px;
-    max-width: 500px;
+    margin-bottom: 20px;
     white-space: normal;
 }
 
