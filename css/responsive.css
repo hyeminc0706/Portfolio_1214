@@ -21,22 +21,25 @@
     .project-image {
         display: none;
     }
-    
-  .aboutme-section {
+    .home-section{
+        bottom: calc(var(--pad) * 3);
+    }
+    .aboutme-section {
         max-width: 80vw !important;
-        bottom: 6vh;
+        bottom: calc(var(--pad) * 3);
     }
     
     .contact-section {
         padding-left: 20vw;
         width: 84vw;
+        bottom: calc(var(--pad) * 3);
     }
     .contact-form textarea{
-        height: 20vw;
-        max-height: 200px;
+        height: 60px !important;
     }
     .projects-list {
         position: absolute;
+        top: 23vh;
     }
 
     /* Hamburger Menu */
@@ -91,7 +94,6 @@
     }
 
     body.dark-theme .nav-menu {
-        background-color: #727272;
     }
 
     .nav-menu.active {
@@ -108,7 +110,9 @@
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
     }
-
+    body.dark-theme .nav-item:hover{
+        background-color: rgb(81 81 81 / 90%);
+    }
     .nav-item:last-child {
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
@@ -121,6 +125,9 @@
         color: #ffffff;
         font-size: 12px;
         font-weight: 400;
+    }
+    .main-nav a:hover{
+        opacity: 1;
     }
     .main-nav li.active a{
         opacity: 1;
