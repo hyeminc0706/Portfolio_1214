@@ -22,8 +22,9 @@
         display: none;
     }
     
-    .aboutme-section {
+  .aboutme-section {
         max-width: 80vw !important;
+        bottom: 6vh;
     }
     
     .contact-section {
