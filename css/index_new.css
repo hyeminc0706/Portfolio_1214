@@ -119,6 +119,12 @@ body.dark-theme {
     transition: background-color 0.9s cubic-bezier(0.1, 0.4, 0.2, 1);
 }
 
+body.light-theme #Background {
+}
+
+body.dark-theme #Background {
+}
+
 /* Mask for top/bottom padding areas */
 .mask {
     position: fixed;
@@ -212,6 +218,12 @@ body.dark-theme {
     color: #fff;
 }
 
+@media (min-width: 1280px) {
+    .site-title {
+        font-size: 60px;
+    }
+}
+
 body.mono-font .site-title {
     letter-spacing: -0.04em;
 }
@@ -227,15 +239,11 @@ body.mono-font .site-title {
     margin-top: 50px;
 }
 
-.main-nav ul {
+.main-nav .main-menu {
     display: flex;
     flex-direction: column;
     row-gap: 15px;
     list-style: none;
-}
-
-.main-nav .nav-menu{
-    display: none;
 }
 
 .main-nav li {
@@ -272,6 +280,12 @@ body.mono-font .site-title {
     height: calc(100% + 10px);
 }
 
+@media (hover: hover) {
+    .main-nav a:hover {
+        opacity: 0.25;
+    }
+}
+
 .main-nav li.active {
     pointer-events: none;
 }
@@ -294,6 +308,21 @@ body.mono-font .site-title {
     opacity: 0.5;
     mix-blend-mode: difference;
     color: #fff;
+}
+
+@media not all and (min-width: 640px) {
+    .project-image{
+        display: none;
+    }
+    .aboutme-section{
+        padding: 10vh 0vw 0vh 10vw;
+    }
+    .contact-section{
+        padding-left: 20vw;
+    }
+    .projects-list{
+        position: absolute;
+    }
 }
 
 /* Theme Toggle Styles */
@@ -360,6 +389,12 @@ body.mono-font .site-title {
 .project-btn {
     transition: opacity 0.4s cubic-bezier(0.1, 0.4, 0.2, 1);
 }
+@media (hover: hover) {
+    .project-btn:hover {
+        opacity: 0.25;
+    }
+}
+
 
 /* Page */
 .page {
@@ -409,12 +444,12 @@ body.mono-font .site-title {
 .about-content h3 {
     font-size: 12px;
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 }
 
 .about-text {
     font-size: 12px;
-    line-height: 1.3;
+    line-height: 1.5;
     font-weight: 200;
     margin-bottom: 15px;
     max-width: 500px;
@@ -451,6 +486,12 @@ body.mono-font .site-title {
     height: 100%;
     padding: calc(var(--pad) * 2);
     color: var(--c-text);
+}
+
+@media (min-width: 1280px) {
+    .projects-list {
+        padding: calc(var(--pad) * 2);
+    }
 }
 
 .project-item {
@@ -546,7 +587,6 @@ body.mono-font .project-title {
 
 .contact-form textarea {
     resize: vertical;
-    min-height: 200px;
 }
 
 .contact-form .send {
@@ -587,4 +627,104 @@ body.mono-font .project-title {
     font-size: 12px;
     font-weight: 200;
     transition: opacity 0.4s cubic-bezier(0.1, 0.4, 0.2, 1);
+}
+
+@media (hover: hover) {
+    .social-links a:hover {
+        opacity: 0.25;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .site-title {
+        font-size: 30px;
+    }
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    z-index: 11;
+    right: var(--pad);
+    top: var(--pad);
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-menu {
+    position: fixed;
+    top: calc(var(--pad) + 44px);
+    right: var(--pad);
+    height: auto;
+    background-color: rgb(31 30 30 / 95%);
+    flex-direction: column;
+    text-align: center;
+    border-radius: 5px;
+    z-index: 10;
+    display: none;
+}
+
+body.dark-theme .nav-menu {
+    background-color: rgb(81 81 81 / 90%);
+}
+
+.nav-menu.active {
+    display: flex;
+    gap: 0;
+    display: none;
+}
+
+.nav-item {
+    width: 100%;
+    height: 50px;
+    line-height: 3;
+}
+
+.nav-item:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.nav-item:last-child {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.nav-item:hover {
+    background-color: rgba(213, 213, 213, 0.8);
+}
+
+body.dark-theme .nav-item:hover {
+    background-color: rgba(60, 60, 60, 0.8);
+}
+
+.nav-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #9b9999;
+    font-size: 12px;
+    font-weight: 400;
 }
