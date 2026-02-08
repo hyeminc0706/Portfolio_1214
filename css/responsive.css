@@ -25,13 +25,13 @@
         bottom: calc(var(--pad) * 3);
     }
     .aboutme-section {
-        max-width: 80vw !important;
+        max-width: 94vw !important;
         bottom: calc(var(--pad) * 3);
     }
     
     .contact-section {
-        padding-left: 20vw;
-        width: 84vw;
+        padding-left: 13vw;
+        width: 95vw;
         bottom: calc(var(--pad) * 3);
     }
     .contact-form textarea{
