@@ -6,6 +6,7 @@
     <title>Mina's Portfolio - Loading</title>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
     <link rel="stylesheet" href="css/landing.css">
+    <link rel="icon" href="img/logoblack.png">
 </head>
 <body>
     <div id="terminal">
@@ -21,7 +22,7 @@
             </div>
         </div>
 
-        <div id="final-screen" class="">
+        <div id="final-screen">
             <model-viewer 
                 id="desk-model"
                 src="img/computer_desk.glb" 
@@ -43,9 +44,6 @@
     <!-- Audio Elements -->
     <audio id="typing-sound" loop>
         <source src="img/typing.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="tv-sound" loop>
-    <source src="img/oldfilm.png" type="image/png"> 
     </audio>
     <audio id="click-sound">
         <source src="img/click.mp3" type="audio/mpeg">
@@ -105,16 +103,13 @@ Click "Start" to begin _`;
         const audioPrompt = document.querySelector('.audio-prompt');
         
         const typingSound = document.getElementById('typing-sound');
-        const tvSound = document.getElementById('tv-sound');
         const clickSound = document.getElementById('click-sound');
         const officeSound = document.getElementById('office-sound');
 
         // Set volume levels
-        typingSound.volume = 0.3;
-        tvSound.volume = 0.3;
-        clickSound.volume = 1.0;
-        officeSound.volume = 0.3;
-        clickSound.volume = 1.0;
+        typingSound.volume = 0.4;
+        clickSound.volume = 0.4;
+        officeSound.volume = 0.36;
 
         // Show click text after model loads
         if (deskModel) {
@@ -151,9 +146,7 @@ Click "Start" to begin _`;
                     
                     // Start typing sound again for start text
                     typingSound.currentTime = 0;
-                    typingSound.play().catch(() => {
-                        console.log('Audio playback prevented');
-                    });
+                    typingSound.play().catch(() => {});
                     typeStartText();
                 }, 300);
             }
@@ -190,9 +183,7 @@ Click "Start" to begin _`;
             typingSound.pause();
             typingSound.currentTime = 0;
             
-            officeSound.play().catch(() => {
-                console.log('Office sound playback prevented');
-            });
+            officeSound.play().catch(() => {});
         });
 
         // Final screen - click anywhere to zoom into monitor and reveal main page
@@ -251,9 +242,7 @@ Click "Start" to begin _`;
                 // Try to play typing sound (may be blocked by browser)
                 typingSound.play().then(() => {
                     audioEnabled = true;
-                }).catch(() => {
-                    console.log('Audio autoplay blocked - click anywhere to enable');
-                });
+                }).catch(() => {});
             }, 200);
         });
 
