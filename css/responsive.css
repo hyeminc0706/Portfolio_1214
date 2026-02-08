@@ -1,0 +1,127 @@
+/* Mobile View CSS */
+
+/* Color scheme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --c-bg: hsl(0, 0%, 12%);
+        --c-text: hsl(0, 0%, 90%);
+    }
+}
+
+/* Mobile Layout - Below 640px */
+@media not all and (min-width: 640px) {
+    .main-nav .main-menu {
+        display: none;
+    }
+    
+    .nav-menu {
+        width: 25vw;
+    }
+    
+    .project-image {
+        display: none;
+    }
+    
+    .aboutme-section {
+        max-width: 80vw !important;
+    }
+    
+    .contact-section {
+        padding-left: 20vw;
+        width: 84vw;
+    }
+    .contact-form textarea{
+        height: 20vw;
+        max-height: 200px;
+    }
+    .projects-list {
+        position: absolute;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        cursor: pointer;
+        position: fixed;
+        z-index: 11;
+        right: calc(var(--pad) + 11px);
+        top: calc(var(--pad) + 18px);
+        flex-direction: column;
+        gap: 6px;
+        width: 30px;
+        height: 24px;
+        color: black;
+        background-color: black;
+        display: flex;
+    }
+
+    .hamburger .bar {
+        background-color: #d2cfcf;
+        transition: all 0.3s ease;
+        width: 25px;
+        height: 2px;
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(
+45deg);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Mobile Navigation Menu */
+    .nav-menu {
+        position: fixed;
+        top: calc(var(--pad) + 44px);
+        right: calc(var(--pad) + 4px);
+        height: auto;
+        background-color: rgb(14 14 14 / 95%);
+        flex-direction: column;
+        text-align: center;
+        border-radius: 5px;
+        z-index: 10;
+        display: none;
+    }
+
+    body.dark-theme .nav-menu {
+        background-color: #727272;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        gap: 0;
+    }
+
+    .nav-item {
+        height: 43px;
+        line-height: 3;
+    }
+
+    .nav-item:first-child {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    .nav-item:last-child {
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .nav-link {
+        display: block;
+        padding-top: 2px;
+        /* height: 100%; */
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 400;
+    }
+    .main-nav li.active a{
+        opacity: 1;
+    }
+}
