@@ -26,13 +26,15 @@
     }
     .aboutme-section {
         max-width: 94vw !important;
-        bottom: calc(var(--pad) * 3);
+        bottom: 4.5vh;
+    
     }
     
     .contact-section {
-        padding-left: 13vw;
+        padding-left: 16vw;
         width: 95vw;
-        bottom: calc(var(--pad) * 3);
+        bottom: 7vh;
+    
     }
     .contact-form textarea{
         height: 60px !important;
