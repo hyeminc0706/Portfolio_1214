@@ -438,9 +438,14 @@ body.mono-font .site-title {
 .section-title {
     font-size: 12px;
     font-weight: 600;
-    margin-bottom: 20px;
-}
+    margin-bottom: 10px;
 
+}
+.aboutme-section p{
+    font-weight: 200;
+    margin-bottom: 20px;
+
+}
 .about-content h3 {
     font-size: 12px;
     font-weight: 600;
