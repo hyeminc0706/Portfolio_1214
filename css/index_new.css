@@ -525,13 +525,24 @@ body.mono-font .project-title {
 
 }
 .project-image {
-    width: 4%;
+    display: block;
+    width: 5.5%;
     margin: 0 0 15px auto;
     mix-blend-mode: normal;
     position: absolute;
     right: 33vw;
     margin: 10px;
 }
+
+.project-image-iphone {
+    display: block;
+    width: 1.7%;
+    height: 3.2%;
+    position: absolute;
+    right: 32.5vw;
+    top: 10vh;
+}
+
 .project-description {
     display: none;
 }
