@@ -34,10 +34,10 @@ It highlights my strengths in UI/UX design, frontend development, and building p
 
 ## 📁 Projects
 
-### [HiteJinro]
-- 🔗 [GitHub Repo](https://github.com/hyeminc0706/HiteJinro)
-- 🌐 [Live Demo](https://hyeminc0706.github.io/HiteJinro/)
-- 📄 [Case Study](https://little-gauge-2b1.notion.site/HiteJinro-Case-Study-2d82c743869e8083b469d5a19fb432f9?pvs=143)
+### [ALTools]
+- 🔗 [GitHub Repo](https://github.com/hyeminc0706/Altools)
+- 🌐 [Live Demo](https://hyeminc0706.github.io/Altools/)
+- 📄 [Case Study](https://little-gauge-2b1.notion.site/ALTools-UI-Animation-Component-Practice-2d82c743869e80d3ba1fc5f975b0a579?pvs=74)
 
 ---
 
@@ -48,10 +48,10 @@ It highlights my strengths in UI/UX design, frontend development, and building p
 
 ---
 
-### [ALTools]
-- 🔗 [GitHub Repo](https://github.com/hyeminc0706/Altools)
-- 🌐 [Live Demo](https://hyeminc0706.github.io/Altools/)
-- 📄 [Case Study](https://little-gauge-2b1.notion.site/ALTools-UI-Animation-Component-Practice-2d82c743869e80d3ba1fc5f975b0a579?pvs=74)
+### [HiteJinro]
+- 🔗 [GitHub Repo](https://github.com/hyeminc0706/HiteJinro)
+- 🌐 [Live Demo](https://hyeminc0706.github.io/HiteJinro/)
+- 📄 [Case Study](https://little-gauge-2b1.notion.site/HiteJinro-Case-Study-2d82c743869e8083b469d5a19fb432f9?pvs=143)
 
 ---
 
