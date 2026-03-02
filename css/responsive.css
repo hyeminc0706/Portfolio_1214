@@ -22,19 +22,19 @@
         display: none;
     }
     .home-section{
-        bottom: 5vh;
+        bottom: 50px;
         right: 7vw;
     }
     .aboutme-section {
         max-width: 94vw !important;
-        bottom: 5vh;
+        bottom: 50px;
         right: 7vw;
     }
     
     .contact-section {
         padding-left: 16vw;
         width: 95vw;
-        bottom: 5vh;
+        bottom: 50px;
     }
     .contact-form textarea{
         height: 60px !important;
