@@ -119,6 +119,12 @@ body.dark-theme {
     transition: background-color 0.9s cubic-bezier(0.1, 0.4, 0.2, 1);
 }
 
+body.light-theme #Background {
+}
+
+body.dark-theme #Background {
+}
+
 /* Mask for top/bottom padding areas */
 .mask {
     position: fixed;
@@ -210,25 +216,11 @@ body.dark-theme {
     font-weight: 200;
     font-size: 30px;
     color: #fff;
-    display: flex;
-    align-items: flex-end;
-    gap: 0.3em;
-}
-
-.site-title-logo {
-    height: 0.5em;
-    width: auto;
-    margin-left: 0.2em;
-    margin-bottom: 0.02em;
-    vertical-align: bottom;
 }
 
 @media (min-width: 1280px) {
     .site-title {
         font-size: 60px;
-    }
-    .site-title-logo {
-        height: 0.5em;
     }
 }
 
@@ -247,7 +239,7 @@ body.mono-font .site-title {
     margin-top: 50px;
 }
 
-.main-nav ul {
+.main-nav .main-menu {
     display: flex;
     flex-direction: column;
     row-gap: 15px;
@@ -319,8 +311,17 @@ body.mono-font .site-title {
 }
 
 @media not all and (min-width: 640px) {
-    #Copyright {
+    .project-image{
         display: none;
+    }
+    .aboutme-section{
+        padding: 10vh 0vw 0vh 10vw;
+    }
+    .contact-section{
+        padding-left: 20vw;
+    }
+    .projects-list{
+        position: absolute;
     }
 }
 
@@ -427,10 +428,11 @@ body.mono-font .site-title {
 /* About Me Section */
 .aboutme-section {
     position: absolute;
-    right: calc(var(--pad) * 2);
-    bottom: calc(var(--pad) * 1.1);
+    right: calc(var(--pad) * 1.5);
+    bottom: calc(var(--pad) * 2);
     white-space: nowrap;
     color: var(--c-text);
+    max-width: 60vw;
 }
 
 .section-title {
@@ -449,7 +451,7 @@ body.mono-font .site-title {
     font-size: 12px;
     line-height: 1.5;
     font-weight: 200;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     max-width: 500px;
     white-space: normal;
 }
@@ -461,7 +463,7 @@ body.mono-font .site-title {
 .contact-details p {
     font-size: 12px;
     line-height: 1.5;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     font-weight: 200;
 }
 
@@ -519,26 +521,17 @@ body.mono-font .project-title {
     font-weight: 200;
     margin-top: 8px;
 }
+.project-links a {
 
+}
 .project-image {
-    display: block;
-    width: 5.5%;
+    width: 4%;
     margin: 0 0 15px auto;
     mix-blend-mode: normal;
     position: absolute;
     right: 33vw;
     margin: 10px;
 }
-
-.project-image-iphone {
-    display: block;
-    width: 1.7%;
-    height: 3.2%;
-    position: absolute;
-    right: 32.5vw;
-    top: 10vh;
-}
-
 .project-description {
     display: none;
 }
@@ -594,7 +587,6 @@ body.mono-font .project-title {
 
 .contact-form textarea {
     resize: vertical;
-    min-height: 200px;
 }
 
 .contact-form .send {
@@ -695,12 +687,13 @@ body.mono-font .project-title {
 }
 
 body.dark-theme .nav-menu {
-    background-color: rgba(40, 40, 40, 0.9);
+    background-color: rgb(81 81 81 / 90%);
 }
 
 .nav-menu.active {
     display: flex;
     gap: 0;
+    display: none;
 }
 
 .nav-item {
