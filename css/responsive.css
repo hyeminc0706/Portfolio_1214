@@ -19,7 +19,8 @@
     }
     
     .project-image {
-        display: none;
+    right: 60vw;
+    width: 18%;
     }
     .home-section{
         bottom: 50px;
