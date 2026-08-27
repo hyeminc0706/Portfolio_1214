@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mina's Portfolio - Loading</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="icon" href="img/logoblack.png">
+</head>
+<body>
+    <div id="terminal">
+        <p class="audio-prompt">Click anywhere to enable sound</p>
+        <div id="boot-screen" class="screen active">
+            <pre id="boot-text"></pre>
+        </div>
+        
+        <div id="start-screen" class="screen">
+            <div class="box">
+                <pre id="start-text"></pre>
+                <button id="start-btn" class="start-button">START</button>
+            </div>
+        </div>
+
+        <div id="final-screen">
+            <model-viewer 
+                id="desk-model"
+                src="img/computer_desk.glb" 
+                alt="Computer Desk 3D Model"
+                auto-rotate
+                camera-controls
+                shadow-intensity="1"
+                exposure="1"
+                camera-orbit="0deg 75deg 5m"
+                field-of-view="45deg"
+                interaction-prompt="none"
+                style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
+            </model-viewer>
+            <iframe id="main-preview" src="main.html?preview=true"></iframe>
+            <p class="click-text">Click anywhere to begin</p>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="typing-sound" loop>
+        <source src="img/typing.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="click-sound">
+        <source src="img/click.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="office-sound" loop>
+        <source src="img/busyoffice.flac" type="audio/flac">
+    </audio>
+
+    <script>
+        // Boot screen text (array of lines for line-by-line typing)
+        const bootLines = [
+            "Mina,              Released: 05/12/2025",
+            "Portfolio          MINABIOS (C)2000 Mina Creative Inc.,",
+            "",
+            "",
+            "MS V1 2000-2026 Special Edition",
+            "",
+            "MC System(tm) v1.0",
+            "Checking RAM : 14000 OK",
+            "",
+            "",
+            "LOADING RESOURCES (14/19)",
+            "",
+            "   Loaded KeyboardKeydown0        ... 44%",
+            "   Loaded KeyboardKeydown1        ... 53%",
+            "   Loaded KeyboardKeydown2        ... 67%",
+            "   Loaded cinematicView                 ... 81%",
+            "   Loaded CSType                  ... 88%",
+            "   Loaded filmUp5        ... 91%",
+            "   Loaded startDown                 ... 97%",
+            "",
+            "",
+            "",
+            "",
+            "Press ESC to enter SETUP , DEL to skip memory test",
+            "01/17/2026"
+        ];
+
+        // Start screen text
+        const startText = `Welcome to Mina's Portfolio 2026
+Click "Start" to begin _`;
+
+        let currentLine = 0;
+        let charIndex = 0;
+        let startIndex = 0;
+        let typingSpeed = 5; // Character typing speed
+        let lineDelay = 50; // Delay between lines
+
+        const bootScreen = document.getElementById('boot-screen');
+        const startScreen = document.getElementById('start-screen');
+        const finalScreen = document.getElementById('final-screen');
+        const bootTextEl = document.getElementById('boot-text');
+        const startTextEl = document.getElementById('start-text');
+        const startBtn = document.getElementById('start-btn');
+        const deskModel = document.getElementById('desk-model');
+        const clickText = document.querySelector('.click-text');
+        const audioPrompt = document.querySelector('.audio-prompt');
+        
+        const typingSound = document.getElementById('typing-sound');
+        const clickSound = document.getElementById('click-sound');
+        const officeSound = document.getElementById('office-sound');
+
+        // Set volume levels
+        typingSound.volume = 0.4;
+        clickSound.volume = 0.4;
+        officeSound.volume = 0.36;
+
+        // Show click text after model loads
+        if (deskModel) {
+            deskModel.addEventListener('load', () => {
+                setTimeout(() => {
+                    clickText.classList.add('show');
+                }, 1000);
+            });
+        }
+
+        function typeBootText() {
+            if (currentLine < bootLines.length) {
+                const line = bootLines[currentLine];
+                
+                if (charIndex < line.length) {
+                    bootTextEl.textContent += line.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeBootText, typingSpeed);
+                } else {
+                    // Line completed, move to next line
+                    bootTextEl.textContent += '\n';
+                    currentLine++;
+                    charIndex = 0;
+                    setTimeout(typeBootText, lineDelay);
+                }
+            } else {
+                // All lines typed, move to start screen
+                typingSound.pause();
+                typingSound.currentTime = 0;
+                
+                setTimeout(() => {
+                    bootScreen.classList.remove('active');
+                    startScreen.classList.add('active');
+                    
+                    // Start typing sound again for start text
+                    typingSound.currentTime = 0;
+                    typingSound.play().catch(() => {});
+                    typeStartText();
+                }, 300);
+            }
+        }
+
+        function typeStartText() {
+            if (startIndex < startText.length) {
+                startTextEl.textContent += startText.charAt(startIndex);
+                startIndex++;
+                setTimeout(typeStartText, 45);
+            } else {
+                // Stop typing sound when start text is done
+                typingSound.pause();
+                typingSound.currentTime = 0;
+                
+                setTimeout(() => {
+                    startBtn.classList.add('show');
+                }, 500);
+            }
+        }
+
+        startBtn.addEventListener('click', () => {
+            clickSound.play().catch(() => {});
+            
+            startScreen.classList.remove('active');
+            finalScreen.classList.add('active');
+            
+            // Hide audio prompt when entering final screen
+            if (audioPrompt) {
+                audioPrompt.style.display = 'none';
+            }
+            
+            // Stop typing sound and start office sound
+            typingSound.pause();
+            typingSound.currentTime = 0;
+            
+            officeSound.play().catch(() => {});
+        });
+
+        // Final screen - click anywhere to zoom into monitor and reveal main page
+        finalScreen.addEventListener('click', () => {
+            if (finalScreen.classList.contains('zooming')) return; // Prevent multiple clicks
+            
+            clickSound.play();
+            finalScreen.classList.add('zooming');
+            
+            // Stop office sound
+            officeSound.pause();
+            officeSound.currentTime = 0;
+            
+            // Zoom camera into the monitor
+            if (deskModel) {
+                deskModel.cameraOrbit = '0deg 75deg 0.5m'; // Zoom closer to monitor
+                deskModel.fieldOfView = '20deg'; // Narrow field of view for zoom effect
+            }
+            
+            // Fade in the iframe
+            const mainPreview = document.getElementById('main-preview');
+            setTimeout(() => {
+                mainPreview.style.opacity = '1';
+                mainPreview.style.pointerEvents = 'auto';
+            }, 500);
+            
+            // Navigate to main page
+            sessionStorage.setItem('fromLanding', 'true');
+            sessionStorage.setItem('playAudio', 'true'); // Flag to play audio
+            setTimeout(() => {
+                window.location.href = 'main.html';
+            }, 2000);
+        });
+
+        let audioEnabled = false;
+        
+        // Enable audio on first click
+        document.addEventListener('click', () => {
+            if (!audioEnabled) {
+                audioEnabled = true;
+                typingSound.play().catch(() => {});
+                // Hide audio prompt after click
+                if (audioPrompt) {
+                    audioPrompt.style.opacity = '0';
+                    setTimeout(() => {
+                        audioPrompt.style.display = 'none';
+                    }, 500);
+                }
+            }
+        }, { once: true });
+
+        window.addEventListener('load', () => {
+            // Start animation immediately
+            setTimeout(() => {
+                typeBootText();
+                // Try to play typing sound (may be blocked by browser)
+                typingSound.play().then(() => {
+                    audioEnabled = true;
+                }).catch(() => {});
+            }, 200);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && startBtn.classList.contains('show')) {
+                startBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
