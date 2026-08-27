@@ -1,3 +1,4 @@
+Agent widget · JS
 /* ============================================================
    Mina Agent Widget
    Appears once per browser session, 30s after the visit began
@@ -7,9 +8,9 @@
     const START_KEY = 'mina_visit_start';
     const SHOWN_KEY = 'mina_agent_shown';
     const DELAY_MS = 30000;
-
+ 
     if (sessionStorage.getItem(SHOWN_KEY)) return; // already shown this session
-
+ 
     let start = sessionStorage.getItem(START_KEY);
     if (!start) {
         start = Date.now();
@@ -17,10 +18,10 @@
     } else {
         start = parseInt(start, 10);
     }
-
+ 
     const elapsed = Date.now() - start;
     const remaining = Math.max(0, DELAY_MS - elapsed);
-
+ 
     function injectStyles() {
         const style = document.createElement('style');
         style.textContent = `
@@ -79,44 +80,70 @@
                 position: relative;
             }
             .mina-agent-btn.no.dodging { position: absolute; }
-
+ 
+            .mina-404-toast {
+                position: fixed; bottom: 24px; right: 24px; z-index: 210;
+                max-width: 280px;
+                background: #17171B; color: #F7F2E7;
+                border-radius: 14px;
+                padding: 14px 16px;
+                font-size: 12.5px; line-height: 1.6; font-weight: 600;
+                box-shadow: 0 20px 50px rgba(17,17,17,0.3);
+                opacity: 0; transform: translateY(12px) scale(0.96);
+                transition: opacity 0.35s ease, transform 0.35s ease;
+            }
+            .mina-404-toast.show { opacity: 1; transform: translateY(0) scale(1); }
+            .mina-404-toast .code { color: #FF8A6B; font-weight: 800; margin-right: 4px; }
+            .mina-404-toast button {
+                margin-top: 10px; width: 100%;
+                background: rgba(255,255,255,0.12); color: #F7F2E7;
+                border: none; border-radius: 999px;
+                padding: 8px 12px; font-size: 11.5px; font-weight: 700;
+                cursor: pointer; font-family: inherit;
+            }
+            .mina-404-toast button:hover { background: rgba(255,255,255,0.2); }
+ 
+            @media (max-width: 480px) {
+                .mina-404-toast { left: 16px; right: 16px; max-width: none; bottom: 100px; }
+            }
+ 
             @media (max-width: 480px) {
                 .mina-agent-widget { left: 16px; right: 16px; width: auto; bottom: 16px; }
             }
         `;
         document.head.appendChild(style);
     }
-
+ 
     function buildWidget() {
         injectStyles();
-
+ 
         const wrap = document.createElement('div');
         wrap.className = 'mina-agent-widget';
         wrap.style.position = 'fixed';
-
+ 
         // figure out where "img/" resolves from (about.html and main.html are both at repo root)
         wrap.innerHTML = `
             <button class="mina-agent-close" aria-label="Close">×</button>
             <div class="mina-agent-top">
                 <div class="mina-agent-avatar">M</div>
-                <div class="mina-agent-text">Still exploring? Would you like to request an interview with Mina?</div>
+                <div class="mina-agent-text">Still exploring? Mina is waiting for your interview request.<br><span style="opacity:0.7; font-size:12px;">아직 둘러보고 계신가요? 미나님이 인터뷰를 위해 대기하고 계십니다.</span></div>
             </div>
             <div class="mina-agent-actions">
                 <a class="mina-agent-btn yes" id="minaAgentYes" href="main.html#contact">Yes</a>
                 <button class="mina-agent-btn no" id="minaAgentNo" type="button">No</button>
             </div>
         `;
-
+ 
         document.body.appendChild(wrap);
         requestAnimationFrame(() => {
             requestAnimationFrame(() => wrap.classList.add('show'));
         });
-
+ 
         wrap.querySelector('.mina-agent-close').addEventListener('click', () => {
             wrap.classList.remove('show');
             setTimeout(() => wrap.remove(), 400);
         });
-
+ 
         // "No" dodges the cursor so it's effectively unclickable
         const noBtn = wrap.querySelector('#minaAgentNo');
         const actions = wrap.querySelector('.mina-agent-actions');
@@ -135,9 +162,35 @@
             e.preventDefault();
             noBtn.dispatchEvent(new Event('mouseenter'));
         });
-
+ 
+        noBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            show404Toast();
+        });
+ 
+        function show404Toast() {
+            const existing = document.querySelector('.mina-404-toast');
+            if (existing) existing.remove();
+ 
+            const toast = document.createElement('div');
+            toast.className = 'mina-404-toast';
+            toast.innerHTML = `
+                <span class="code">Error 404:</span>Option not found. Mina is too valuable to pass up. Try again?
+                <button type="button">Try Again</button>
+            `;
+            document.body.appendChild(toast);
+            requestAnimationFrame(() => requestAnimationFrame(() => toast.classList.add('show')));
+ 
+            const dismiss = () => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 350);
+            };
+            toast.querySelector('button').addEventListener('click', dismiss);
+            setTimeout(dismiss, 5000);
+        }
+ 
         sessionStorage.setItem(SHOWN_KEY, '1');
     }
-
+ 
     setTimeout(buildWidget, remaining);
 })();
