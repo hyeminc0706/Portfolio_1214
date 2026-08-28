@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALTools — Mina Choi</title>
+<link rel="icon" href="img/logoblack.png" type="image/png">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body>
+
+<header class="site-header">
+    <a href="main.html" class="logo">MINA CHOI</a>
+    <nav>
+        <a href="main.html#work" class="is-active">WORK</a>
+        <a href="about.html">ABOUT</a>
+        <a href="main.html#contact">CONTACT</a>
+    </nav>
+    <a href="https://www.linkedin.com/in/minachoia" target="_blank" class="linkedin">LINKEDIN</a>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+<div class="mobile-nav" id="mobileNav">
+    <a href="main.html#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="main.html#contact">Contact</a>
+    <a href="https://www.linkedin.com/in/minachoia" target="_blank">LinkedIn</a>
+</div>
+
+<a href="main.html#work" class="story-back-link">← Back to Work</a>
+
+<section class="section">
+    <article class="story-project" style="--proj-accent:#D9622B; border-top:none; padding-top: 24px;">
+        <div class="story-header">
+            <div class="story-index">01</div>
+            <h2 class="story-title">ALTools</h2>
+        </div>
+        <p class="story-tagline">A front-end sandbox built to test how motion, modular components, and responsive behavior shape the way people experience an interface.</p>
+        <div class="story-tags">
+            <span class="story-tag is-filled">Sandbox Practice</span>
+            <span class="story-tag">Motion &amp; Interaction</span>
+            <span class="story-tag">3 Breakpoints</span>
+        </div>
+
+        <div class="story-hero"><img src="img/pf3.png" alt="ALTools desktop screen"></div>
+
+        <div class="story-grid">
+            <h3>The Brief</h3>
+            <p>Unlike a redesign or clone, ALTools was built as a sandbox for testing UI behavior — motion design, component interaction, layout clarity, animation timing, and responsive behavior across devices. The goal was to see how motion affects perception, and how components can stay modular and reusable while still feeling right on desktop, tablet, and mobile.</p>
+        </div>
+
+        <div class="story-grid">
+            <h3>Process</h3>
+            <ol class="story-steps">
+                <li class="story-step">
+                    <div class="story-step-num">01</div>
+                    <div>
+                        <div class="story-step-title">Research &amp; Concept Planning</div>
+                        <ul>
+                            <li>Studied common UI patterns and picked components suited to animation practice</li>
+                            <li>Defined interaction goals — hover, slider, transitions — and responsive requirements per breakpoint</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="story-step">
+                    <div class="story-step-num">02</div>
+                    <div>
+                        <div class="story-step-title">Wireframing &amp; Motion Planning</div>
+                        <ul>
+                            <li>Simple wireframes focused on component structure and spacing hierarchy</li>
+                            <li>Planned motion behavior per element and mapped layout adjustments for tablet/mobile</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="story-step">
+                    <div class="story-step-num">03</div>
+                    <div>
+                        <div class="story-step-title">Build</div>
+                        <ul>
+                            <li>Semantic HTML/CSS layout with JS/jQuery-driven components</li>
+                            <li>Created custom dropdown menu with accessibility features (mouse hover + keyboard navigation)</li>
+                        </ul>
+                        <div class="story-inline-img"><img src="img/altools-dropdown-1.png" alt="ALTools custom dropdown menu — Tools submenu"></div>
+                        <div class="story-inline-img"><img src="img/altools-dropdown-2.png" alt="ALTools custom dropdown menu — My Page submenu"></div>
+                        <div class="story-inline-caption">Custom dropdown menus, built for both mouse hover and keyboard navigation.</div>
+
+                        <ul style="margin-top:14px;">
+                            <li>Integrated Slick Slider with custom controls: custom control bar with prev/next navigation, play/pause toggle, real-time slide index display</li>
+                        </ul>
+                        <div class="story-inline-img"><img src="img/altools-slider-controls.png" alt="ALTools custom slider control bar"></div>
+                        <div class="story-inline-caption">Custom prev / next / play-pause control bar with a live slide index (1/4).</div>
+
+                        <ul style="margin-top:14px;">
+                            <li>2-row 4-column grid slider layout for product showcase</li>
+                        </ul>
+                        <div class="story-inline-img"><img src="img/altools-grid-layout.png" alt="ALTools 2-row 4-column product grid"></div>
+                        <div class="story-inline-caption">Product cards arranged in a 2-row, 4-column responsive grid.</div>
+
+                        <ul style="margin-top:14px;">
+                            <li>Custom responsive breakpoints — desktop hover states, tablet simplified interactions, mobile (767px and below) touch-optimized with dynamic slider activation for performance</li>
+                        </ul>
+                        <div class="story-inline-img"><img src="img/altools-responsive.png" alt="ALTools responsive breakpoint comparison"></div>
+                        <div class="story-inline-caption">Layout behavior compared across mobile, tablet, and desktop breakpoints.</div>
+                    </div>
+                </li>
+                <li class="story-step">
+                    <div class="story-step-num">04</div>
+                    <div>
+                        <div class="story-step-title">QA &amp; Refinement</div>
+                        <ul>
+                            <li>Tuned animation timing, tested touch interactions across devices</li>
+                            <li>Verified keyboard navigation and ARIA labels, cleaned up cross-browser inconsistencies</li>
+                        </ul>
+                    </div>
+                </li>
+            </ol>
+        </div>
+
+        <div class="story-grid">
+            <h3>Key Decisions</h3>
+            <div class="story-pills-list">
+                <span class="story-pill-item">Motion guides attention, not decoration</span>
+                <span class="story-pill-item">Modular, reusable components</span>
+                <span class="story-pill-item">Mobile-first, progressively enhanced</span>
+                <span class="story-pill-item">Hover disabled on touch devices</span>
+                <span class="story-pill-item">Conditional slider init for performance</span>
+                <span class="story-pill-item">Keyboard-accessible interactions</span>
+            </div>
+        </div>
+
+        <div class="story-grid">
+            <h3>What I Learned</h3>
+            <div class="story-learnings-row">
+                <p class="story-learnings-text">This project sharpened my sense of how motion affects perception and strengthened my ability to build modular, reusable UI. I got hands-on with responsive strategy across custom breakpoints, device-specific interaction patterns, performance-conscious component initialization, and basic accessibility practices like ARIA labels and keyboard navigation.</p>
+                <div class="story-callout">
+                    <div class="story-callout-num">3</div>
+                    <div class="story-callout-label">Custom breakpoints designed and built by hand — desktop, tablet, and mobile each with their own interaction rules</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-links">
+            <a class="btn-pill" href="https://hyeminc0706.github.io/Altools/" target="_blank">Live Demo →</a>
+            <a class="btn-pill is-outline" href="https://github.com/hyeminc0706/Altools" target="_blank">GitHub →</a>
+        </div>
+    </article>
+</section>
+
+<div style="padding: 0 var(--pad) 60px;">
+    <a href="work-ktcu.html" class="story-back-link" style="margin:0;">Next project: KTCU →</a>
+</div>
+
+<footer class="site-footer">
+    <span>Design &amp; Developed by Mina Choi</span>
+    <span>© 2026 — All Rights Reserved</span>
+</footer>
+
+<script src="js/magnifier-cursor.js"></script>
+<script src="js/agent-widget.js"></script>
+<script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburgerBtn.addEventListener('click', () => mobileNav.classList.toggle('is-open'));
+</script>
+</body>
+</html>
