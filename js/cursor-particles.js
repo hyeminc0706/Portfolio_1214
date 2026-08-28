@@ -76,7 +76,7 @@ class CursorCodeTrail {
             this.ctx.translate(p.x, p.y);
             this.ctx.rotate(p.rotation);
             this.ctx.font = `600 ${p.size}px "SF Mono", "Fira Code", Consolas, monospace`;
-            this.ctx.fillStyle = `hsl(${p.hue}, 70%, 45%)`;
+            this.ctx.fillStyle = p.color;
             this.ctx.textAlign = 'center';
             this.ctx.textBaseline = 'middle';
             this.ctx.fillText(p.text, 0, 0);
