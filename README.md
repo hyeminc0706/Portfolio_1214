@@ -2,7 +2,7 @@
 
 ## 🔍 Overview
 A personal portfolio website featuring three UI/UX projects, each presented with a complete case study and a clean, interaction‑focused layout.
-<img width="1323" height="791" alt="Screenshot 2026-01-19 at 11 26 51 PM" src="https://github.com/user-attachments/assets/5d53e72a-9431-4876-ba66-8da45b6954d5" />
+<img width="1696" height="871" alt="Screenshot 2026-08-27 at 17 26 31" src="https://github.com/user-attachments/assets/52dc9f9a-7785-478c-84fe-9d0745edf8fb" />
 ▶︎ **Live Site:** https://hyeminc0706.github.io/Portfolio_1214/  
 ▶︎ **GitHub Projects:** Linked within each case study
 
@@ -16,12 +16,13 @@ It highlights my strengths in UI/UX design, frontend development, and building p
 
 ## 🛠 Tech Stack
 - **HTML5**, **CSS3**, **JavaScript**
+
 - **Alpine.js** — State management
 - **Canvas API** — Wave animations
 
 ---
 
-## 🧩 Features
+## 🧩 Featuresmy professional work journey
 - Modern, minimalist design with animated wave background (Canvas)
 - Light/Dark theme toggle with localStorage persistence
 - Dynamic wave animation that adapts to theme colors
