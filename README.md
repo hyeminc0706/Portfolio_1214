@@ -3,7 +3,7 @@
 ## 🔍 Overview
 A personal portfolio website featuring three UI/UX projects, each presented with a complete case study and a clean, interaction‑focused layout.
 <img width="1696" height="871" alt="Screenshot 2026-08-27 at 17 26 31" src="https://github.com/user-attachments/assets/52dc9f9a-7785-478c-84fe-9d0745edf8fb" />
-▶︎ **Live Site:** https://hyeminc0706.github.io/Portfolio_1214/  
+▶︎ **Live Site:** https://hyeminc0706.github.io/Portfolio_1214/main.html
 ▶︎ **GitHub Projects:** Linked within each case study
 
 ---
