@@ -53,7 +53,7 @@ class CursorCodeTrail {
                 rotation: (Math.random() - 0.5) * 0.4,
                 life: 1,
                 decay: Math.random() * 0.012 + 0.01,
-                hue: 210 + Math.random() * 60 // blue-purple range, feels "code editor"-ish
+                color: Math.random() < 0.5 ? '#17171B' : '#D9622B' // black / brand orange mix
             });
         }
     }
