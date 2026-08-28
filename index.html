@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mina Choi — Portfolio</title>
+<link rel="icon" href="img/logoblack.png" type="image/png">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+        width: 100%; height: 100%;
+        background: #F7F2E7;
+        overflow: hidden;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        color: #17171B;
+    }
+
+    #bg {
+        position: fixed; inset: 0; z-index: 0;
+        background:
+            radial-gradient(circle at 20% 20%, rgba(217,98,43,0.16), transparent 45%),
+            radial-gradient(circle at 82% 15%, rgba(59,55,118,0.14), transparent 42%),
+            radial-gradient(circle at 75% 85%, rgba(31,110,74,0.14), transparent 45%),
+            #F7F2E7;
+    }
+    .blob {
+        position: absolute; border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.55;
+        will-change: transform;
+    }
+    .blob-1 { width: 380px; height: 380px; background: #D9622B; top: 8%; left: 8%; }
+    .blob-2 { width: 300px; height: 300px; background: #3B3776; top: 12%; right: 10%; }
+    .blob-3 { width: 340px; height: 340px; background: #1F6E4A; bottom: 6%; left: 20%; }
+
+    #stage {
+        position: fixed; inset: 0; z-index: 2;
+        display: flex; align-items: center; justify-content: center;
+        padding: 24px;
+        perspective: 1200px;
+    }
+
+    .chat-card {
+        width: 100%; max-width: 460px;
+        background: rgba(255, 255, 255, 0.62);
+        backdrop-filter: blur(22px) saturate(160%);
+        -webkit-backdrop-filter: blur(22px) saturate(160%);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 26px;
+        box-shadow:
+            0 2px 6px rgba(17,17,17,0.05),
+            0 20px 50px rgba(17,17,17,0.14),
+            0 60px 100px -20px rgba(17,17,17,0.18);
+        padding: 28px 26px 24px;
+        opacity: 0;
+        transform: translateY(28px) scale(0.96);
+        animation: card-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+    }
+    @keyframes card-in {
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .chat-header {
+        display: flex; align-items: center; gap: 12px;
+        margin-bottom: 20px;
+    }
+    .chat-avatar {
+        width: 44px; height: 44px; border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+        border: 1.5px solid rgba(255,255,255,0.85);
+        box-shadow: 0 2px 8px rgba(17,17,17,0.12);
+    }
+    .chat-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .chat-who { line-height: 1.35; }
+    .chat-name { font-size: 14px; font-weight: 700; }
+    .chat-status { font-size: 11.5px; color: #2E9B5C; display: flex; align-items: center; gap: 5px; }
+    .chat-status .dot { width: 6px; height: 6px; border-radius: 50%; background: #2E9B5C; display: inline-block; }
+
+    .chat-bubble {
+        background: #fff;
+        border-radius: 16px 16px 16px 4px;
+        padding: 14px 16px;
+        font-size: 14.5px;
+        line-height: 1.6;
+        box-shadow: 0 6px 18px rgba(17,17,17,0.06);
+        margin-bottom: 18px;
+        min-height: 24px;
+    }
+
+    .typing-dots { display: flex; gap: 4px; padding: 4px 2px; }
+    .typing-dots span {
+        width: 7px; height: 7px; border-radius: 50%; background: #999;
+        animation: bounce-dot 1.2s infinite ease-in-out;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: 0.15s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes bounce-dot { 0%,60%,100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-5px); opacity: 1; } }
+
+    .chat-msg-text { display: none; }
+
+    .quick-replies {
+        display: flex; flex-direction: column; gap: 10px;
+        opacity: 0; transform: translateY(8px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .quick-replies.show { opacity: 1; transform: translateY(0); }
+
+    .qr-btn {
+        appearance: none; border: none; cursor: pointer;
+        font-family: inherit; font-size: 13.5px; font-weight: 700;
+        padding: 13px 18px; border-radius: 14px;
+        text-align: left;
+        display: flex; align-items: center; justify-content: space-between;
+        color: #17171B;
+        background: #fff;
+        box-shadow: 0 2px 0 rgba(17,17,17,0.06), 0 8px 18px rgba(17,17,17,0.06);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        border-left: 3px solid #D9622B;
+    }
+    .qr-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 0 rgba(17,17,17,0.08), 0 14px 26px rgba(17,17,17,0.1);
+    }
+    .qr-btn:active { transform: translateY(0px) scale(0.99); }
+    .qr-btn .arrow { opacity: 0.35; font-size: 15px; }
+
+    .skip-intro {
+        position: fixed; bottom: 20px; right: 24px; z-index: 20;
+        font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+        color: rgba(23,23,27,0.4); text-decoration: none;
+        border-bottom: 1px solid rgba(23,23,27,0.25);
+    }
+
+    /* Sound-on hint (autoplay policies require a first gesture) */
+    #sound-hint {
+        position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+        z-index: 25;
+        font-size: 11.5px; font-weight: 700;
+        color: rgba(23,23,27,0.55);
+        background: rgba(255,255,255,0.7);
+        padding: 8px 16px; border-radius: 999px;
+        opacity: 0; pointer-events: none;
+        transition: opacity 0.4s ease;
+    }
+    #sound-hint.show { opacity: 1; }
+
+    @media (max-width: 480px) {
+        .chat-card { padding: 22px 18px 20px; }
+    }
+</style>
+</head>
+<body>
+
+<div id="bg">
+    <div class="blob blob-1" id="blob1"></div>
+    <div class="blob blob-2" id="blob2"></div>
+    <div class="blob blob-3" id="blob3"></div>
+</div>
+
+<div id="sound-hint">🎵 Click anywhere for sound</div>
+
+<div id="stage">
+    <div class="chat-card" id="chatCard">
+        <div class="chat-header">
+            <div class="chat-avatar"><img src="img/minari-face.png" alt="Minari"></div>
+            <div class="chat-who">
+                <div class="chat-name">Minari</div>
+                <div class="chat-status"><span class="dot"></span> AI Assistant · Online</div>
+            </div>
+        </div>
+
+        <div class="chat-bubble" id="chatBubble">
+            <div class="typing-dots" id="typingDots"><span></span><span></span><span></span></div>
+            <div class="chat-msg-text" id="chatMsgText">Hello! Welcome to Mina's portfolio, where structured thinking meets UI/UX design. Ready to take a look?</div>
+        </div>
+
+        <div class="quick-replies" id="quickReplies">
+            <button class="qr-btn" id="btnEnter">View Portfolio <span class="arrow">→</span></button>
+        </div>
+    </div>
+</div>
+
+<a href="main.html" class="skip-intro">Skip Intro</a>
+
+<audio id="bgMusic" src="img/hueSparkles.mp3" loop preload="auto"></audio>
+<audio id="typingSound" src="img/typing.mp3" loop preload="auto"></audio>
+
+<script>
+    const bgMusic = document.getElementById('bgMusic');
+    const typingSound = document.getElementById('typingSound');
+    const soundHint = document.getElementById('sound-hint');
+    const typingDots = document.getElementById('typingDots');
+    const chatMsgText = document.getElementById('chatMsgText');
+    const quickReplies = document.getElementById('quickReplies');
+
+    bgMusic.volume = 0.35;
+    typingSound.volume = 0.4;
+
+    let audioStarted = false;
+    function tryStartAudio() {
+        if (audioStarted) return;
+        audioStarted = true;
+        bgMusic.play().catch(() => {});
+        soundHint.classList.remove('show');
+    }
+
+    // Try immediately (works if the browser allows it), and on first interaction otherwise
+    bgMusic.play().then(() => { audioStarted = true; }).catch(() => {
+        soundHint.classList.add('show');
+    });
+    document.addEventListener('click', tryStartAudio, { once: true });
+    document.addEventListener('touchstart', tryStartAudio, { once: true });
+
+    // ---------- Typing simulation with sound ----------
+    setTimeout(() => {
+        typingSound.currentTime = 0;
+        typingSound.play().catch(() => {});
+    }, 300);
+
+    setTimeout(() => {
+        typingSound.pause();
+        typingSound.currentTime = 0;
+        typingDots.style.display = 'none';
+        chatMsgText.style.display = 'block';
+        setTimeout(() => quickReplies.classList.add('show'), 250);
+    }, 1400);
+
+    // ---------- Routing ----------
+    document.getElementById('btnEnter').addEventListener('click', () => {
+        window.location.href = 'main.html';
+    });
+
+    // ---------- Subtle 3/4D parallax on mouse move ----------
+    const card = document.getElementById('chatCard');
+    const blob1 = document.getElementById('blob1');
+    const blob2 = document.getElementById('blob2');
+    const blob3 = document.getElementById('blob3');
+
+    let targetRX = 0, targetRY = 0, curRX = 0, curRY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        const nx = (e.clientX / window.innerWidth) - 0.5;
+        const ny = (e.clientY / window.innerHeight) - 0.5;
+
+        targetRY = nx * 10;
+        targetRX = -ny * 10;
+
+        blob1.style.transform = `translate(${nx * -30}px, ${ny * -20}px)`;
+        blob2.style.transform = `translate(${nx * 26}px, ${ny * -24}px)`;
+        blob3.style.transform = `translate(${nx * -22}px, ${ny * 26}px)`;
+    });
+
+    function tiltLoop() {
+        curRX += (targetRX - curRX) * 0.08;
+        curRY += (targetRY - curRY) * 0.08;
+        card.style.transform = `translateY(0) rotateX(${curRX}deg) rotateY(${curRY}deg)`;
+        requestAnimationFrame(tiltLoop);
+    }
+    requestAnimationFrame(tiltLoop);
+</script>
+</body>
+</html>
